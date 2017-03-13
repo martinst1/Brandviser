@@ -2,6 +2,7 @@ version: 1.0.{build}
 before_build:
 - ps: nuget restore ./Brandviser/Brandviser.sln
 build:
+  project: ./Brandviser/Brandviser.sln
   verbosity: minimal
   
 environment:
