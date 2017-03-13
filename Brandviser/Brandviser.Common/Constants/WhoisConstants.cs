@@ -10,7 +10,7 @@ namespace Brandviser.Common.Constants
         public const int RecommendedBufferSizeInBytes = 1024 * 4;
 
         // only letters, numbers and hyphen
-        public const string RegexDomainPattern = "[a-z0-9-]";
+        public const string RegexDomainPattern = @"^[a-z0-9\-]*$";
 
         public const string DomainEndPattern = ".com";
         public const string ForbiddenDomainStartSymbol = "-";

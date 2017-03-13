@@ -28,13 +28,14 @@ namespace Brandviser.Common
                 throw new ArgumentException("Domain name cannot start with hyphen.");
             }
 
-            if (!domainName.EndsWith(WhoisConstants.DomainEndPattern))
+            if (!domainName.ToLower().EndsWith(WhoisConstants.DomainEndPattern))
             {
                 throw new ArgumentException("Domain name should be a .com domain.");
             }
 
             var regex = new Regex(WhoisConstants.RegexDomainPattern);
-            if (!regex.IsMatch(domainName.ToLower()))
+            // remove ".com"
+            if (!regex.IsMatch(domainName.ToLower().Substring(0, domainName.Length - 4)))
             {
                 throw new ArgumentException("Domain should only contain letters, numbers or hyphen.");
 
