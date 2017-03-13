@@ -281,6 +281,10 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Brandviser.Common\Brandviser.Common.csproj">
+      <Project>{9AB1FE7A-8695-4E53-B351-49982EE226F8}</Project>
+      <Name>Brandviser.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brandviser.Data.Models\Brandviser.Data.Models.csproj">
       <Project>{CDE92D3B-35C4-4F24-8E47-5C6406DB822A}</Project>
       <Name>Brandviser.Data.Models</Name>

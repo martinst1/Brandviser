@@ -102,6 +102,8 @@
     <Compile Include="Controllers\TestTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Utils\WhoisTests\Constructor_Should.cs" />
+    <Compile Include="Utils\WhoisTests\LookupDotComDomain_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -110,6 +112,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Brandviser.Common\Brandviser.Common.csproj">
+      <Project>{9AB1FE7A-8695-4E53-B351-49982EE226F8}</Project>
+      <Name>Brandviser.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brandviser.Web\Brandviser.Web.csproj">
       <Project>{7FC10768-C475-48E0-BC54-AC4B732C8953}</Project>
       <Name>Brandviser.Web</Name>

@@ -5,7 +5,8 @@ namespace Brandviser.Web.App_Start
 {
     using System;
     using System.Web;
-
+    using Common;
+    using Common.Contracts;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
@@ -61,6 +62,7 @@ namespace Brandviser.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-        }        
+            kernel.Bind<IWhois>().To<Whois>();
+            kernel.Bind<ISocket>().To<JustTcpStreamSocket>();        }        
     }
 }
