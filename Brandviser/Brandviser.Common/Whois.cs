@@ -66,7 +66,6 @@ namespace Brandviser.Common
             string humanReadableResponse = Encoding.UTF8.GetString(responseBytes);
 
             return humanReadableResponse;
-
         }
     }
 }

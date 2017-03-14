@@ -223,12 +223,90 @@ namespace Brandviser.Tests.Utils.WhoisTests
             var whoisServer = WhoisConstants.WhoisServer;
             var whoisServerLookupQueryPrefix = WhoisConstants.WhoisServerLookupQueryPrefix;
             var responseBufferSizeInBytes = WhoisConstants.RecommendedBufferSizeInBytes;
-            var responseBytes = new byte[responseBufferSizeInBytes];
+            byte[] responseBytes = new byte[responseBufferSizeInBytes];
             // Act
             whois.LookupDotComDomain(domainName, port, whoisServer, whoisServerLookupQueryPrefix, responseBufferSizeInBytes);
 
             // Assert
             socketStub.Verify(s => s.Receive(responseBytes), Times.Once());
+        }
+
+        [Test]
+        public void Call_ISocket_ConnectMethod_WithExpectedParams()
+        {
+            // Arrange
+            var socketStub = new Mock<ISocket>();
+            var whois = new Whois(socketStub.Object);
+            var domainName = "test.com";
+            var port = WhoisConstants.Port;
+            var whoisServer = WhoisConstants.WhoisServer;
+            var whoisServerLookupQueryPrefix = WhoisConstants.WhoisServerLookupQueryPrefix;
+            var responseBufferSizeInBytes = WhoisConstants.RecommendedBufferSizeInBytes;
+
+            // Act
+            whois.LookupDotComDomain(domainName, port, whoisServer, whoisServerLookupQueryPrefix, responseBufferSizeInBytes);
+
+            // Assert
+            socketStub.Verify(s => s.Connect(WhoisConstants.WhoisServer, port));
+        }
+
+        [Test]
+        public void Call_ISocket_SendMethod_WithExpectedParams()
+        {
+            // Arrange
+            var socketStub = new Mock<ISocket>();
+            var whois = new Whois(socketStub.Object);
+            var domainName = "test.com";
+            var port = WhoisConstants.Port;
+            var whoisServer = WhoisConstants.WhoisServer;
+            var whoisServerLookupQueryPrefix = WhoisConstants.WhoisServerLookupQueryPrefix;
+            var responseBufferSizeInBytes = WhoisConstants.RecommendedBufferSizeInBytes;
+            var responseBytes = new byte[responseBufferSizeInBytes];
+            byte[] query = Encoding.ASCII.GetBytes(whoisServerLookupQueryPrefix + domainName + Environment.NewLine);
+            // Act
+            whois.LookupDotComDomain(domainName, port, whoisServer, whoisServerLookupQueryPrefix, responseBufferSizeInBytes);
+
+            // Assert
+            socketStub.Verify(s => s.Send(query));
+        }
+
+        [Test]
+        public void Call_ISocket_ReceiveMethod_WithExpectedParams()
+        {
+            // Arrange
+            var socketStub = new Mock<ISocket>();
+            var whois = new Whois(socketStub.Object);
+            var domainName = "test.com";
+            var port = WhoisConstants.Port;
+            var whoisServer = WhoisConstants.WhoisServer;
+            var whoisServerLookupQueryPrefix = WhoisConstants.WhoisServerLookupQueryPrefix;
+            var responseBufferSizeInBytes = WhoisConstants.RecommendedBufferSizeInBytes;
+            var responseBytes = new byte[responseBufferSizeInBytes];
+            // Act
+            whois.LookupDotComDomain(domainName, port, whoisServer, whoisServerLookupQueryPrefix, responseBufferSizeInBytes);
+
+            // Assert
+            socketStub.Verify(s => s.Receive(responseBytes));
+        }
+        [Test]
+        public void Return_CorrectResults()
+        {
+            // Arrange
+            string expectedMessage = "test.com whois message";
+
+            var socketStub = new FakeSocket(expectedMessage);
+            var whois = new Whois(socketStub);
+            var domainName = "test.com";
+            var port = WhoisConstants.Port;
+            var whoisServer = WhoisConstants.WhoisServer;
+            var whoisServerLookupQueryPrefix = WhoisConstants.WhoisServerLookupQueryPrefix;
+            var responseBufferSizeInBytes = WhoisConstants.RecommendedBufferSizeInBytes;
+
+            // Act
+            string actualMessage = whois.LookupDotComDomain(domainName, port, whoisServer, whoisServerLookupQueryPrefix, responseBufferSizeInBytes);
+
+            // Assert
+            StringAssert.Contains(expectedMessage, actualMessage);
         }
     }
 }
