@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Brandviser.Web.Models;
 using Brandviser.Data.Models;
+using Brandviser.Data.Models.Constants;
 
 namespace Brandviser.Web.Controllers
 {
@@ -23,7 +24,7 @@ namespace Brandviser.Web.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -35,9 +36,9 @@ namespace Brandviser.Web.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -121,7 +122,7 @@ namespace Brandviser.Web.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -156,8 +157,23 @@ namespace Brandviser.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    // HACK: 
+                    var newUser = UserManager.Users.Single(u => u.Email == model.Email);
+                    if (model.Role == "Buy great domains")
+                    {
+                        UserManager.AddToRole(newUser.Id, RoleConstants.Buyer);
+                    }
+                    if (model.Role == "Sell great domains")
+                    {
+                        UserManager.AddToRole(newUser.Id, RoleConstants.Seller);
+                    }
+                    if (model.Role == "Design cool logos")
+                    {
+                        UserManager.AddToRole(newUser.Id, RoleConstants.Designer);
+                    }
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

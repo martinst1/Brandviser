@@ -11,6 +11,26 @@ namespace Brandviser.Data.Models
 {
     public class User : IdentityUser
     {
+        private ICollection<Domain> domains;
+
+        public User()
+        {
+            this.domains = new HashSet<Domain>();
+        }
+
+        public decimal Balance { get; set; }
+
+        public virtual ICollection<Domain> Domains
+        {
+            get
+            {
+                return this.domains;
+            }
+            set
+            {
+                this.domains = value;
+            }
+        }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

@@ -79,6 +79,10 @@ namespace Brandviser.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name ="I want to")]
+        public string Role { get; set; }
     }
 
     public class ResetPasswordViewModel

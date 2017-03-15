@@ -62,6 +62,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrandviserDbContext.cs" />
+    <Compile Include="Migrations\201703131505194_InitialCreate.cs" />
+    <Compile Include="Migrations\201703131505194_InitialCreate.Designer.cs">
+      <DependentUpon>201703131505194_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703151258536_DomainAndStatus.cs" />
+    <Compile Include="Migrations\201703151258536_DomainAndStatus.Designer.cs">
+      <DependentUpon>201703151258536_DomainAndStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703151429483_Roles.cs" />
+    <Compile Include="Migrations\201703151429483_Roles.Designer.cs">
+      <DependentUpon>201703151429483_Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +86,17 @@
       <Project>{CDE92D3B-35C4-4F24-8E47-5C6406DB822A}</Project>
       <Name>Brandviser.Data.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703131505194_InitialCreate.resx">
+      <DependentUpon>201703131505194_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703151258536_DomainAndStatus.resx">
+      <DependentUpon>201703151258536_DomainAndStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703151429483_Roles.resx">
+      <DependentUpon>201703151429483_Roles.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
