@@ -7,5 +7,11 @@
 
         public const int DescriptionMinLength = 10;
         public const int DescriptionMaxLength = 255;
+
+        public const int FirstNameMinLength = 3;
+        public const int FirstNameMaxLength = 100;
+
+        public const int LastNameMinLength = 3;
+        public const int LastNameMaxLength = 100;
     }
 }

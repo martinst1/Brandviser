@@ -81,8 +81,18 @@ namespace Brandviser.Web.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name ="I want to")]
+        [Display(Name = "I want to")]
         public string Role { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        [StringLength(100, MinimumLength = 3)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        [StringLength(100, MinimumLength = 3)]
+        public string LastName { get; set; }
     }
 
     public class ResetPasswordViewModel

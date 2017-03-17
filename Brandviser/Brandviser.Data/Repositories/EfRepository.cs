@@ -40,6 +40,11 @@ namespace Brandviser.Data.Repositories
             return this.DbSet.Find(id);
         }
 
+        public T GetByGuidId(string id)
+        {
+            return this.DbSet.Find(id);
+        }
+
         public void Add(T entity)
         {
             var entry = AttachIfDetached(entity);

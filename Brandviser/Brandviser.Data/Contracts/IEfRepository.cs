@@ -11,6 +11,8 @@ namespace Brandviser.Data.Contracts
 
         T GetById(int id);
 
+        T GetByGuidId(string id);
+
         void Add(T entity);
 
         void Delete(T entity);

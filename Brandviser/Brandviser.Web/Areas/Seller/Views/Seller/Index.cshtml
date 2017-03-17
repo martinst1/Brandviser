@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @model  Brandviser.Web.Areas.Seller.Models.SellerProfileBoxStatsViewModel
+}
+<div class="row seller-navbar">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Dashboard", "Index", "Home", new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Domains", "About", "Home", new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Balance", "Contact", "Home", new { @class = "seller-nav-link" })</li>
+    </ul>
+
+    <ul class="nav navbar-nav pull-right-md">
+        <li>@Html.ActionLink("Dashboard", "Index", "Home", new { @class = "seller-nav-link-orange" })</li>
+        <li>@Html.ActionLink("Domains", "About", "Home", new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Balance", "Contact", "Home", new { @class = "seller-nav-link" })</li>
+    </ul>
+</div>
+<div class="row seller-content">
+    <div class="col-md-8">
+        <h2>Domains published by @Model.FullName</h2>
+    </div>
+    <div class="col-md-4 seller-profile-stats">
+        <div class="row profile-stats-row">
+            <div class="col-md-8">
+                <h3>@Model.FullName</h3>
+                <p class="seller-block-small-text">Member for @Model.MemberFor</p>
+            </div>
+            <div class="col-md-4">
+                <div class="profile-namelogo">@Model.Initials</div>
+            </div>
+        </div>
+
+        <div class="row profile-stats-row">
+            <div class="col-md-8">
+                <h3 class="profile-h3">Credits</h3>
+                <p class="seller-block-small-text">Balance: $@Model.Balance</p>
+            </div>
+            <div class="col-md-4">
+                <div class="profile-value-block-money">@Model.BalanceInKUsd</div>
+            </div>
+        </div>
+
+        <div class="row profile-stats-row last-profile-row">
+            <div class="col-md-8">
+                <h3 class="profile-h3">Domains</h3>
+                <p class="seller-block-small-text">Submitted:  @Model.SubmittedDomains</p>
+                <p class="seller-block-small-text">Rejected:   @Model.RejectedDomains</p>
+                <p class="seller-block-small-text">Pending:    @Model.PendingDomains</p>
+                <p class="seller-block-small-text">Published:  @Model.PublishedDomains</p>
+                <p class="seller-block-small-text">Sold:       @Model.SoldDomains</p>
+            </div>
+            <div class="col-md-4">
+                <div class="profile-value-block">@Model.PublishedDomains</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -5,6 +5,7 @@ namespace Brandviser.Web.App_Start
 {
     using System;
     using System.Web;
+    using Services.Contracts;
     using Common;
     using Common.Contracts;
     using Data;
@@ -13,21 +14,22 @@ namespace Brandviser.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Services;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -35,7 +37,7 @@ namespace Brandviser.Web.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -64,10 +66,11 @@ namespace Brandviser.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IWhois>().To<Whois>();
-            kernel.Bind<ISocket>().To<JustTcpStreamSocket>();
-            kernel.Bind<IBrandviserData>().To<BrandviserData>();
-            kernel.Bind<IBrandviserDbContext>().To<BrandviserDbContext>();
-        }        
+            kernel.Bind<IWhois>().To<Whois>().InRequestScope();
+            kernel.Bind<ISocket>().To<JustTcpStreamSocket>().InRequestScope();
+            kernel.Bind<IBrandviserData>().To<BrandviserData>().InRequestScope();
+            kernel.Bind<IBrandviserDbContext>().To<BrandviserDbContext>().InRequestScope();
+            kernel.Bind<IUserService>().To<UserService>().InRequestScope();
+        }
     }
 }

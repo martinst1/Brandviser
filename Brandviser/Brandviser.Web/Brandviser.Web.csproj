@@ -189,6 +189,9 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Seller\Controllers\SellerController.cs" />
+    <Compile Include="Areas\Seller\Models\SellerProfileBoxStatsViewModel.cs" />
+    <Compile Include="Areas\Seller\SellerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -201,10 +204,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-readable.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\logo-resized.png" />
     <Content Include="Content\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -218,6 +223,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Seller\Views\web.config" />
+    <Content Include="Areas\Seller\Views\Seller\Index.cshtml" />
+    <Content Include="fonts\gotham-medium.eot" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -273,6 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Seller\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -292,6 +301,10 @@
     <ProjectReference Include="..\Brandviser.Data\Brandviser.Data.csproj">
       <Project>{9FB50E57-FB12-43F8-B5AE-A603CC06B186}</Project>
       <Name>Brandviser.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brandviser.Services\Brandviser.Services.csproj">
+      <Project>{5D41A6E2-4750-49B0-A8B6-89F5158AF822}</Project>
+      <Name>Brandviser.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
