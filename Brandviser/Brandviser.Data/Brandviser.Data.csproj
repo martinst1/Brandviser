@@ -61,7 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrandviserData.cs" />
     <Compile Include="BrandviserDbContext.cs" />
+    <Compile Include="Contracts\IBrandviserData.cs" />
+    <Compile Include="Contracts\IBrandviserDbContext.cs" />
+    <Compile Include="Contracts\IEfRepository.cs" />
     <Compile Include="Migrations\201703131505194_InitialCreate.cs" />
     <Compile Include="Migrations\201703131505194_InitialCreate.Designer.cs">
       <DependentUpon>201703131505194_InitialCreate.cs</DependentUpon>
@@ -76,6 +80,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EfRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

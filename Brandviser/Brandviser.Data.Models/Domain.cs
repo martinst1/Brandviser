@@ -10,7 +10,7 @@ namespace Brandviser.Data.Models
         [Key]
         public int Id { get; set; }
 
-        public int UserId { get; set; }
+        public int OriginalOwnerId { get; set; }
 
         public virtual User OriginalOwner { get; set; }
 
@@ -59,7 +59,7 @@ namespace Brandviser.Data.Models
         public Domain(int userId, string name, int statusId, string description, DateTime createdAt)
             : this()
         {
-            this.UserId = userId;
+            this.OriginalOwnerId = userId;
             this.Name = name;
             this.StatusId = statusId;
             this.Description = description;

@@ -119,6 +119,10 @@
       <Project>{9AB1FE7A-8695-4E53-B351-49982EE226F8}</Project>
       <Name>Brandviser.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Brandviser.Data\Brandviser.Data.csproj">
+      <Project>{9FB50E57-FB12-43F8-B5AE-A603CC06B186}</Project>
+      <Name>Brandviser.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brandviser.Web\Brandviser.Web.csproj">
       <Project>{7FC10768-C475-48E0-BC54-AC4B732C8953}</Project>
       <Name>Brandviser.Web</Name>

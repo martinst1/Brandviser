@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Brandviser.Web;
 using Brandviser.Web.Controllers;
+using Brandviser.Data;
 
 namespace Brandviser.Tests.Controllers
 {
