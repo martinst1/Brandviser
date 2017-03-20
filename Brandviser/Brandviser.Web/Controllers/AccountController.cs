@@ -166,12 +166,18 @@ namespace Brandviser.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email,
-                    FirstName = model.FirstName, LastName = model.LastName };
+                var user = new User
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    CreatedOn = DateTime.Now
+                };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    // HACK: 
                     var newUser = UserManager.Users.Single(u => u.Email == model.Email);
                     if (model.Role == "Buy great domains")
                     {

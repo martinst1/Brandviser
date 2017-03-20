@@ -13,11 +13,15 @@ namespace Brandviser.Data.Models
 {
     public class User : IdentityUser
     {
-        private ICollection<Domain> domains;
+        private ICollection<Domain> sellerDomains;
+        private ICollection<Domain> buyerDomains;
+        private ICollection<Domain> designerDomains;
 
         public User()
         {
-            this.domains = new HashSet<Domain>();
+            this.sellerDomains = new HashSet<Domain>();
+            this.buyerDomains = new HashSet<Domain>();
+            this.designerDomains = new HashSet<Domain>();
         }
 
         public decimal Balance { get; set; }
@@ -32,15 +36,41 @@ namespace Brandviser.Data.Models
         [MaxLength(ModelConstants.LastNameMaxLength)]
         public string LastName { get; set; }
 
-        public virtual ICollection<Domain> Domains
+        public DateTime CreatedOn { get; set; }
+
+        public virtual ICollection<Domain> SellerDomains
         {
             get
             {
-                return this.domains;
+                return this.sellerDomains;
             }
             set
             {
-                this.domains = value;
+                this.sellerDomains = value;
+            }
+        }
+
+        public virtual ICollection<Domain> BuyerDomains
+        {
+            get
+            {
+                return this.buyerDomains;
+            }
+            set
+            {
+                this.buyerDomains = value;
+            }
+        }
+
+        public virtual ICollection<Domain> DesignerDomains
+        {
+            get
+            {
+                return this.designerDomains;
+            }
+            set
+            {
+                this.designerDomains = value;
             }
         }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

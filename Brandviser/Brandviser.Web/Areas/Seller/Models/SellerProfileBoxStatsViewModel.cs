@@ -11,7 +11,7 @@ namespace Brandviser.Web.Areas.Seller.Models
 
         public string Initials { get; set; }
 
-        public string MemberFor { get; set; }
+        public DateTime MemberSince { get; set; }
 
         public string BalanceInKUsd { get; set; }
 

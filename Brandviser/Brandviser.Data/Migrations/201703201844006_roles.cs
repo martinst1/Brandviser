@@ -3,7 +3,7 @@ namespace Brandviser.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
 
-    public partial class Roles : DbMigration
+    public partial class roles : DbMigration
     {
         public override void Up()
         {

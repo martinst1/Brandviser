@@ -23,6 +23,12 @@ namespace Brandviser.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/unobtrusive").Include(
+              "~/Scripts/jquery.unobtrusive*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-readable.css",
                       "~/Content/site.css"));

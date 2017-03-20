@@ -7,13 +7,13 @@ namespace Brandviser.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class roles : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(roles));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703131505194_InitialCreate"; }
+            get { return "201703201844006_roles"; }
         }
         
         string IMigrationMetadata.Source

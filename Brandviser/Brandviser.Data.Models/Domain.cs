@@ -10,23 +10,23 @@ namespace Brandviser.Data.Models
         [Key]
         public int Id { get; set; }
 
-        public int OriginalOwnerId { get; set; }
-
-        public virtual User OriginalOwner { get; set; }
-
-        public int? BuyerId { get; set; }
-
-        public virtual User Buyer { get; set; }
-
-        public int? DesignerId { get; set; }
-
-        public virtual User Designer { get; set; }
-
         [Required]
         [Index(IsUnique = true)]
         [MinLength(ModelConstants.DomainMinLength)]
         [MaxLength(ModelConstants.DomainMaxLength)]
         public string Name { get; set; }
+
+        public string UserId { get; set; }
+
+        public virtual User User { get; set; }
+
+        public string BuyerId { get; set; }
+
+        public virtual User Buyer { get; set; }
+
+        public string DesignerId { get; set; }
+
+        public virtual User Designer { get; set; }
 
         public decimal? Price { get; set; }
 
@@ -43,7 +43,7 @@ namespace Brandviser.Data.Models
 
         public DateTime? SoldOn { get; set; }
 
-        public Guid VerificationId { get; set; }
+        public Guid VerificationCode { get; set; }
 
         public DateTime CreatedAt { get; set; }
 
@@ -56,16 +56,16 @@ namespace Brandviser.Data.Models
 
         }
 
-        public Domain(int userId, string name, int statusId, string description, DateTime createdAt)
+        public Domain(string userId, string name, int statusId, string description, DateTime createdAt)
             : this()
         {
-            this.OriginalOwnerId = userId;
+            this.UserId = userId;
             this.Name = name;
             this.StatusId = statusId;
             this.Description = description;
             this.CreatedAt = createdAt;
 
-            this.VerificationId = Guid.NewGuid();
+            this.VerificationCode = Guid.NewGuid();
         }
     }
 }

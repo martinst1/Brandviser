@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Brandviser.Data.Contracts;
 using Bytes2you.Validation;
 
@@ -40,7 +38,7 @@ namespace Brandviser.Data.Repositories
             return this.DbSet.Find(id);
         }
 
-        public T GetByGuidId(string id)
+        public T GetByStringId(string id)
         {
             return this.DbSet.Find(id);
         }

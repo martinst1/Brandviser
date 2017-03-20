@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Brandviser.Data.Contracts;
+﻿using Brandviser.Data.Contracts;
 using Brandviser.Data.Models;
 using Brandviser.Services.Contracts;
 using Bytes2you.Validation;
@@ -20,9 +15,10 @@ namespace Brandviser.Services
 
             this.brandviserData = brandviserData;
         }
-        public User GetUserByGuidId(string id)
+
+        public User GetUserByStringId(string id)
         {
-            var user = this.brandviserData.Users.GetByGuidId(id);
+            var user = this.brandviserData.Users.GetByStringId(id);
 
             return user;
         }

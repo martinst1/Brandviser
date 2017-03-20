@@ -66,17 +66,13 @@
     <Compile Include="Contracts\IBrandviserData.cs" />
     <Compile Include="Contracts\IBrandviserDbContext.cs" />
     <Compile Include="Contracts\IEfRepository.cs" />
-    <Compile Include="Migrations\201703131505194_InitialCreate.cs" />
-    <Compile Include="Migrations\201703131505194_InitialCreate.Designer.cs">
-      <DependentUpon>201703131505194_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201703201841595_initial.cs" />
+    <Compile Include="Migrations\201703201841595_initial.Designer.cs">
+      <DependentUpon>201703201841595_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703151258536_DomainAndStatus.cs" />
-    <Compile Include="Migrations\201703151258536_DomainAndStatus.Designer.cs">
-      <DependentUpon>201703151258536_DomainAndStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703151429483_Roles.cs" />
-    <Compile Include="Migrations\201703151429483_Roles.Designer.cs">
-      <DependentUpon>201703151429483_Roles.cs</DependentUpon>
+    <Compile Include="Migrations\201703201844006_roles.cs" />
+    <Compile Include="Migrations\201703201844006_roles.Designer.cs">
+      <DependentUpon>201703201844006_roles.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,14 +89,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703131505194_InitialCreate.resx">
-      <DependentUpon>201703131505194_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703201841595_initial.resx">
+      <DependentUpon>201703201841595_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703151258536_DomainAndStatus.resx">
-      <DependentUpon>201703151258536_DomainAndStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703151429483_Roles.resx">
-      <DependentUpon>201703151429483_Roles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703201844006_roles.resx">
+      <DependentUpon>201703201844006_roles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

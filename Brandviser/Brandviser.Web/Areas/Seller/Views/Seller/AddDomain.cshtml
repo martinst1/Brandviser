@@ -1,0 +1,20 @@
+﻿@{
+    @model  Brandviser.Web.Areas.Seller.Models.AddDomainViewModel
+}
+
+<h1>hello from add domain view</h1>
+
+@using (Html.BeginForm("AddDomain", "Seller"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class="form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+}

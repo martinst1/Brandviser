@@ -4,26 +4,43 @@
 }
 <div class="row seller-navbar">
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Dashboard", "Index", "Home", new { @class = "seller-nav-link" })</li>
-        <li>@Html.ActionLink("Domains", "About", "Home", new { @class = "seller-nav-link" })</li>
-        <li>@Html.ActionLink("Balance", "Contact", "Home", new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Dashboard", "Index", "Seller", null, new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Domains", "Domains", "Seller", null, new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Transactions", "Transactions", "Seller", null, new { @class = "seller-nav-link" })</li>
+        <li>
+            @Ajax.ActionLink("Add Domain+", "AddDomain", "Seller", null, new AjaxOptions()
+       {
+           HttpMethod = "Get",
+           AllowCache = false,
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "seller-partial",
+           LoadingElementId = "spinner"
+       }, new { @class = "seller-nav-link-green" })
+        </li>
     </ul>
 
     <ul class="nav navbar-nav pull-right-md">
-        <li>@Html.ActionLink("Dashboard", "Index", "Home", new { @class = "seller-nav-link-orange" })</li>
-        <li>@Html.ActionLink("Domains", "About", "Home", new { @class = "seller-nav-link" })</li>
-        <li>@Html.ActionLink("Balance", "Contact", "Home", new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Profile", "Index", "Home", null, new { @class = "seller-nav-link-orange" })</li>
+        <li>@Html.ActionLink("Edit", "About", "Home", null, new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Account", "Contact", "Home", null, new { @class = "seller-nav-link" })</li>
     </ul>
 </div>
 <div class="row seller-content">
     <div class="col-md-8">
-        <h2>Domains published by @Model.FullName</h2>
+        @*<h2>Domains published by @Model.FullName</h2>*@
+        <div id="seller-partial">
+            <div class="col-md-2"></div>
+            <div class="col-md-2 xs-offset-2">
+                <img id="spinner" src="~/Content/spin.gif"
+                     style="display: none;">
+            </div>
+        </div>
     </div>
     <div class="col-md-4 seller-profile-stats">
         <div class="row profile-stats-row">
             <div class="col-md-8">
                 <h3>@Model.FullName</h3>
-                <p class="seller-block-small-text">Member for @Model.MemberFor</p>
+                <p class="seller-block-small-text">Member since @Model.MemberSince.ToString("dd/MMM/yyyy")</p>
             </div>
             <div class="col-md-4">
                 <div class="profile-namelogo">@Model.Initials</div>
@@ -55,6 +72,8 @@
         </div>
     </div>
 </div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/unobtrusive")
 
 
 

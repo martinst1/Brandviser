@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Brandviser</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -18,18 +18,24 @@
                     <span class="icon-bar"></span>
                 </button>
                 @*<div class="navbar-brand top left">
-                    <img src="~/Content/logo.png" alt="Alternate Text" />
-                </div>*@
-                <a class="navbar-brand" href='@Url.Action("Index", "Home")'>
+                        <img src="~/Content/logo.png" alt="Alternate Text" />
+                    </div>*@
+                <a class="navbar-brand" href='@Url.Action("Index", "Home", new { area = "" })'>
                     <img class="main-logo" src='@Url.Content("~/Content/logo-resized.png")' />
                 </a>
-               @* @Html.ActionLink("Application Name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                @* @Html.ActionLink("Application Name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
+                    @{
+                        if (User.IsInRole("Seller"))
+                        {
+                            <li>@Html.ActionLink("Dashboard", "Index", "Seller", new { area = "Seller" }, null)</li>
+                        }
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -39,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Brandviser .NET</p>
         </footer>
     </div>
 

@@ -15,6 +15,8 @@ namespace Brandviser.Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Services;
+    using Factories;
+    using Ninject.Extensions.Factory;
 
     public static class NinjectWebCommon
     {
@@ -71,6 +73,8 @@ namespace Brandviser.Web.App_Start
             kernel.Bind<IBrandviserData>().To<BrandviserData>().InRequestScope();
             kernel.Bind<IBrandviserDbContext>().To<BrandviserDbContext>().InRequestScope();
             kernel.Bind<IUserService>().To<UserService>().InRequestScope();
+            kernel.Bind<IDomainService>().To<DomainService>().InRequestScope();
+            kernel.Bind<IDomainFactory>().ToFactory().InRequestScope();
         }
     }
 }
