@@ -99,7 +99,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\TestTest.cs" />
     <Compile Include="Models\DomainTests.cs" />
     <Compile Include="Models\StatusTests.cs" />
     <Compile Include="Models\UserTests.cs" />
@@ -120,34 +119,30 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Services\UserServiceTests\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Brandviser.Common\Brandviser.Common.csproj">
-      <Project>{9AB1FE7A-8695-4E53-B351-49982EE226F8}</Project>
+      <Project>{9ab1fe7a-8695-4e53-b351-49982ee226f8}</Project>
       <Name>Brandviser.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brandviser.Data.Models\Brandviser.Data.Models.csproj">
-      <Project>{CDE92D3B-35C4-4F24-8E47-5C6406DB822A}</Project>
+      <Project>{cde92d3b-35c4-4f24-8e47-5c6406db822a}</Project>
       <Name>Brandviser.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brandviser.Data\Brandviser.Data.csproj">
-      <Project>{9FB50E57-FB12-43F8-B5AE-A603CC06B186}</Project>
+      <Project>{9fb50e57-fb12-43f8-b5ae-a603cc06b186}</Project>
       <Name>Brandviser.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brandviser.Factories\Brandviser.Factories.csproj">
-      <Project>{8492F918-3162-4C76-9E81-35EC44021285}</Project>
+      <Project>{8492f918-3162-4c76-9e81-35ec44021285}</Project>
       <Name>Brandviser.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\Brandviser.Services\Brandviser.Services.csproj">
-      <Project>{5D41A6E2-4750-49B0-A8B6-89F5158AF822}</Project>
+      <Project>{5d41a6e2-4750-49b0-a8b6-89f5158af822}</Project>
       <Name>Brandviser.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Brandviser.Web\Brandviser.Web.csproj">
-      <Project>{7FC10768-C475-48E0-BC54-AC4B732C8953}</Project>
-      <Name>Brandviser.Web</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\UserServiceTests\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
