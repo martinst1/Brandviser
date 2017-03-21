@@ -33,7 +33,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
 
             // 1 = pending, first obtained status of every domain
             var realStatusId = 1;
-            var fakeDomain = new Domain()
+            var actualDomain = new Domain()
             {
                 UserId = userId,
                 Name = name,
@@ -44,7 +44,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
 
             domainFactory.Setup(d => d.CreateDomain(It.IsAny<string>(),
              It.IsAny<string>(), It.IsAny<int>(),
-             It.IsAny<string>(), It.IsAny<DateTime>())).Returns(fakeDomain);
+             It.IsAny<string>(), It.IsAny<DateTime>())).Returns(actualDomain);
 
             bradviserData.Setup(b => b.Domains).Returns(mockedRepository.Object);
 
@@ -55,7 +55,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             domainService.AddDomain(name, description, userId);
 
             // Assert
-            mockedRepository.Verify(r => r.Add(fakeDomain), Times.Once());
+            mockedRepository.Verify(r => r.Add(actualDomain), Times.Once());
         }
 
         public void Call_BrandviserSaveChanges_Once()
@@ -72,7 +72,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             domainService.AddDomain("name", "description", "userId");
 
             // Assert
-            bradviserData.Verify(b => b.SaveChanges(), Times.Never());
+            bradviserData.Verify(b => b.SaveChanges(), Times.Once());
         }
 
         public void Call_DateTimeProvider_GetCurrentTime_Once()
@@ -89,7 +89,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             domainService.AddDomain("name", "description", "userId");
 
             // Assert
-            dateTimeProvider.Verify(d => d.GetCurrentTime(), Times.Never());
+            dateTimeProvider.Verify(d => d.GetCurrentTime(), Times.Once());
         }
     }
 }

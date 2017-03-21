@@ -17,7 +17,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
     public class Constructor_Should
     {
         [Test]
-        public void ThrowArgumentNullExceptionWithMessageContaining_IBrandviserData_WhenUsitDataIsNull()
+        public void ThrowArgumentNullExceptionWithMessageContaining_IBrandviserData_WhenBrandviserDataIsNull()
         {
             // Arrange
             var domainFactory = new Mock<IDomainFactory>();

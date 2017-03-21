@@ -106,6 +106,8 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Services\DomainServiceTests\AddDomain_Should.cs" />
     <Compile Include="Services\DomainServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\UserServiceTests\GetUserByStringId_Should.cs" />
+    <Compile Include="Services\UserServiceTests\Constructor_Should.cs" />
     <Compile Include="Utils\TxtRecordsCheckerTests\Constructor_Should.cs" />
     <Compile Include="Utils\TxtRecordsCheckerTests\GetRecords_Should.cs" />
     <Compile Include="Utils\WhoisTests\Constructor_Should.cs" />
@@ -119,7 +121,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\UserServiceTests\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
