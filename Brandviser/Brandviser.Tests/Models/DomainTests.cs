@@ -28,6 +28,28 @@ namespace Brandviser.Tests.Models
         }
 
         [Test]
+        public void DefaultNotEmptyContructor_ShouldReturnNewDomain_WithCorrectParams()
+        {
+            // Arrange
+            var userId = "stringid1";
+            var name = "test.com";
+            var statusId = 1;
+            var description = "test description";
+            var createdAt = new DateTime(2016, 1, 1);
+
+            // Act
+            var domain = new Domain(userId, name, statusId, description, createdAt);
+
+            // Assert
+            Assert.IsInstanceOf<Domain>(domain);
+            Assert.AreEqual(domain.UserId, userId);
+            Assert.AreEqual(domain.Name, name);
+            Assert.AreEqual(domain.StatusId, statusId);
+            Assert.AreEqual(domain.Description, description);
+            Assert.AreEqual(domain.CreatedAt, createdAt);
+        }
+
+        [Test]
         public void ConstructorShouldAssign_NewGuid_ToVerificationProperty_OnModelCreate()
         {
             // Arrange & Act

@@ -74,6 +74,8 @@ namespace Brandviser.Web.App_Start
             kernel.Bind<IBrandviserDbContext>().To<BrandviserDbContext>().InRequestScope();
             kernel.Bind<IUserService>().To<UserService>().InRequestScope();
             kernel.Bind<IDomainService>().To<DomainService>().InRequestScope();
+            kernel.Bind<IDateTimeProvider>().To<DateTimeProvider>().InRequestScope();
+
             kernel.Bind<IDomainFactory>().ToFactory().InRequestScope();
         }
     }
