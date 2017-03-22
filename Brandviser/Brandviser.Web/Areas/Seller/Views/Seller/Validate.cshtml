@@ -1,0 +1,87 @@
+﻿@model Brandviser.Web.Areas.Seller.Models.ValidateDomainViewModel
+@using Brandviser.Web.Properties;
+<h2>Verify the ownership of @Model.Name</h2>
+<hr />
+
+@using (Html.BeginForm("ValidateDomain", "Seller"))
+{
+    <div class="container">
+
+        <div class="form-group">
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.Name)
+            @Html.HiddenFor(m => m.VerificationCode)
+
+            <div class="row">
+                <div>
+                    <label>
+                        @Html.RadioButton("VerificationMethod", "Nameserver", true)
+                        Validate via changing the nameservers of your domain
+                    </label>
+                </div>
+                <div class="well col-md-6">
+                    <p>1. Determine your domain registrar and login to your registrar account</p>
+                    <p>2. Update your nameserver records to: @Settings.Default.Nameserver1, @Settings.Default.Nameserver2</p>
+                    <p>3. Confirm your changes </p>
+                    <p>4. Continue by clicking the verify button.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>
+                        @Html.RadioButton("VerificationMethod", "TxtRecord")
+                        Validate via creating a TXT record to your domain
+                    </label>
+                </div>
+                <div class="well col-md-6">
+                    <p>1. Sign in to your domain's account at your domain host. </p>
+                    <p>
+                        2. Locate the page for updating your domain's DNS records.
+                        The page might be called something like DNS Management, Name Server Management, or Advanced
+                        Settings.
+                    <p />
+                    <p>
+                        3. Locate the TXT records for your domain. You may already have one or more records
+                        resembling:
+
+                        <div class="table table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>TTL</th>
+                                        <th>Name</th>
+                                        <th>Value</th>
+                                        <th>Effect</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>TXT</td>
+                                        <td>640 seconds (possible min. value)</td>
+                                        <td>@@</td>
+                                        <td>
+                                            <strong>@Model.VerificationCode</strong> - this is your unique domain
+                                            identification code
+                                        </td>
+                                        <td>
+                                            This txt record will be associated with the bare domain
+                                            <strong>@Model.VerificationCode</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </p>
+                    <p>4. Add a TXT record with values <strong> @Model.VerificationCode </strong></p>
+                    <p>
+                        5. Save your changes and <strong>wait a few minutes</strong> allowing the changes to take
+                        effect.
+                    </p>
+                    <p>6. Continue by clicking the verify button.</p>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Verify</button>
+    </div>
+}

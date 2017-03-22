@@ -16,8 +16,8 @@ namespace Brandviser.Web.Areas.Seller
         {
             context.MapRoute(
                 "Seller_default",
-                "Seller/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                "Seller/{controller}/{action}/{name}",
+                new { action = "Index", name = UrlParameter.Optional }
             );
         }
     }

@@ -177,3 +177,23 @@ h3 {
     padding-bottom:20px;
 }
 
+#seller-partial{
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 2px 2px #888888;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.domains-alert {
+    margin-top: 5px;
+}
+
+td {
+  word-wrap:break-word;
+  word-break:break-all;
+}

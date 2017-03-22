@@ -14,6 +14,7 @@ namespace Brandviser.Data.Models
         [Index(IsUnique = true)]
         [MinLength(ModelConstants.DomainMinLength)]
         [MaxLength(ModelConstants.DomainMaxLength)]
+        [RegularExpression("^([a-z0-9]+(-[a-z0-9]+)*\\.)+[.com]{3,3}$")]
         public string Name { get; set; }
 
         public string UserId { get; set; }

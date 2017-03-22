@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Brandviser.Web.Areas.Seller.Models.PartialPricedDomainViewModel>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Domain Name</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var domain in Model)
+            {
+                <tr>
+                    <td>@domain.Name</td>
+                    <td>@domain.Status</td>
+                    <td>$@domain.Price</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Seller", new { name = domain.Name }, new { @class = "btn btn-sm btn-danger" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

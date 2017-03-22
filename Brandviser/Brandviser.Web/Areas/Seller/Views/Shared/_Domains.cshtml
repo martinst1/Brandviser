@@ -1,0 +1,54 @@
+﻿
+<h3>My domains</h3>
+<hr />
+<div class="btn-group">
+    @Ajax.ActionLink("Pending", "Pending", "Seller", null, new AjaxOptions()
+{
+    HttpMethod = "Get",
+    AllowCache = false,
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "domain-partial",
+    LoadingElementId = "spinner"
+}, new { @class = "btn btn-sm btn-primary" })
+
+    @Ajax.ActionLink("Rejected", "Rejected", "Seller", null, new AjaxOptions()
+{
+    HttpMethod = "Get",
+    AllowCache = false,
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "domain-partial",
+    LoadingElementId = "spinner"
+}, new { @class = "btn btn-sm btn-primary" })
+
+    @Ajax.ActionLink("Accepted", "Accepted", "Seller", null, new AjaxOptions()
+{
+    HttpMethod = "Get",
+    AllowCache = false,
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "domain-partial",
+    LoadingElementId = "spinner"
+}, new { @class = "btn btn-sm btn-primary" })
+
+    @Ajax.ActionLink("Published", "Published", "Seller", null, new AjaxOptions()
+{
+    HttpMethod = "Get",
+    AllowCache = false,
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "domain-partial",
+    LoadingElementId = "spinner"
+}, new { @class = "btn btn-sm btn-primary" })
+
+
+    @Ajax.ActionLink("Sold", "Sold", "Seller", null, new AjaxOptions()
+{
+    HttpMethod = "Get",
+    AllowCache = false,
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "domain-partial",
+    LoadingElementId = "spinner"
+}, new { @class = "btn btn-sm btn-primary" })
+
+</div>
+<div id="domain-partial"></div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/unobtrusive")

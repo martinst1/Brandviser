@@ -106,8 +106,17 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Services\DomainServiceTests\AddDomain_Should.cs" />
     <Compile Include="Services\DomainServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\DomainServiceTests\GetDomainByName_Should.cs" />
+    <Compile Include="Services\DomainServiceTests\GetSellerAcceptedDomainsByUserId.cs" />
+    <Compile Include="Services\DomainServiceTests\GetSellerPendingDomainsByUserId_Should.cs" />
+    <Compile Include="Services\DomainServiceTests\GetSellerPublishedDomainsByUserId.cs" />
+    <Compile Include="Services\DomainServiceTests\GetSellerRejectedDomainsByUserId_Should.cs" />
+    <Compile Include="Services\DomainServiceTests\GetSellerSoldDomainsByUserId.cs" />
+    <Compile Include="Services\DomainServiceTests\PublishDomain_Should.cs" />
+    <Compile Include="Services\DomainServiceTests\VerifyDomainNameServers_Should.cs" />
     <Compile Include="Services\UserServiceTests\GetUserByStringId_Should.cs" />
     <Compile Include="Services\UserServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\VerifyDomainNameByTxtRecord_Should.cs" />
     <Compile Include="Utils\TxtRecordsCheckerTests\Constructor_Should.cs" />
     <Compile Include="Utils\TxtRecordsCheckerTests\GetRecords_Should.cs" />
     <Compile Include="Utils\WhoisTests\Constructor_Should.cs" />

@@ -22,11 +22,43 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             // Arrange
             var domainFactory = new Mock<IDomainFactory>();
             var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
 
             // Act and Assert
             Assert.That(() =>
-            new DomainService(null, domainFactory.Object, dateTimeProvider.Object),
+            new DomainService(null, domainFactory.Object, dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object),
             Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("IBrandviserData"));
+        }
+
+        [Test]
+        public void ThrowArgumentNullExceptionWithMessageContaining_IWhois_WhenWhoisIsNull()
+        {
+            // Arrange
+            var bradviserData = new Mock<IBrandviserData>();
+            var domainFactory = new Mock<IDomainFactory>();
+            var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
+
+            // Act and Assert
+            Assert.That(() =>
+            new DomainService(bradviserData.Object, domainFactory.Object, dateTimeProvider.Object, null, txtRecordsChecker.Object),
+            Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("IWhois"));
+        }
+
+        [Test]
+        public void ThrowArgumentNullExceptionWithMessageContaining_ITxtRecordsChecker_WhenTxtRecordsCheckerIsNull()
+        {
+            // Arrange
+            var bradviserData = new Mock<IBrandviserData>();
+            var domainFactory = new Mock<IDomainFactory>();
+            var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var whois = new Mock<IWhois>();
+
+            // Act and Assert
+            Assert.That(() =>
+            new DomainService(bradviserData.Object, domainFactory.Object, dateTimeProvider.Object, whois.Object, null),
+            Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("ITxtRecordsChecker"));
         }
 
         [Test]
@@ -35,10 +67,12 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             // Arrange
             var bradviserData = new Mock<IBrandviserData>();
             var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
 
             // Act and Assert
             Assert.That(() =>
-            new DomainService(bradviserData.Object, null, dateTimeProvider.Object),
+            new DomainService(bradviserData.Object, null, dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object),
             Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("IDomainFactory"));
         }
 
@@ -48,10 +82,12 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             // Arrange
             var domainFactory = new Mock<IDomainFactory>();
             var bradviserData = new Mock<IBrandviserData>();
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
 
             // Act and Assert
             Assert.That(() =>
-            new DomainService(bradviserData.Object, domainFactory.Object, null),
+            new DomainService(bradviserData.Object, domainFactory.Object, null, whois.Object, txtRecordsChecker.Object),
             Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("IDateTimeProvider"));
         }
 
@@ -62,10 +98,12 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             var domainFactory = new Mock<IDomainFactory>();
             var bradviserData = new Mock<IBrandviserData>();
             var dateTimeProvider = new Mock<IDateTimeProvider>();
-
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
 
             // Act
-            var domainService = new DomainService(bradviserData.Object, domainFactory.Object, dateTimeProvider.Object);
+            var domainService = new DomainService(bradviserData.Object,
+                domainFactory.Object, dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object);
 
             // Assert
             Assert.IsInstanceOf<IDomainService>(domainService);
@@ -78,9 +116,12 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             var domainFactory = new Mock<IDomainFactory>();
             var bradviserData = new Mock<IBrandviserData>();
             var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
 
             // Act and Assert
-            Assert.DoesNotThrow(() => new DomainService(bradviserData.Object, domainFactory.Object, dateTimeProvider.Object));
+            Assert.DoesNotThrow(() => new DomainService(bradviserData.Object,
+                domainFactory.Object, dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object));
         }
     }
 }

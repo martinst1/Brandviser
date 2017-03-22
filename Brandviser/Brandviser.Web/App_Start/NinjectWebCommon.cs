@@ -69,6 +69,7 @@ namespace Brandviser.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IWhois>().To<Whois>().InRequestScope();
+            kernel.Bind<ITxtRecordsChecker>().To<TxtRecordsChecker>().InRequestScope();
             kernel.Bind<ISocket>().To<JustTcpStreamSocket>().InRequestScope();
             kernel.Bind<IBrandviserData>().To<BrandviserData>().InRequestScope();
             kernel.Bind<IBrandviserDbContext>().To<BrandviserDbContext>().InRequestScope();

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Brandviser.Web.Areas.Seller.Models.PartialPricedDomainViewModel>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Domain Name</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var domain in Model)
+            {
+                <tr>
+                    <td>@domain.Name</td>
+                    <td>@domain.Status</td>
+                    <td>$@domain.Price</td>
+                    @*<td>@Html.ActionLink("Validate ownership", "Validate", "Seller", new { name = domain.Name.Replace(".com", "")}, new { @class = "btn btn-sm btn-danger" })</td>*@
+                    <td>
+                        @Ajax.ActionLink("Validate ownership", "Validate", "Seller", new { name = domain.Name.Replace(".com", "") }, new AjaxOptions()
+                   {
+                       HttpMethod = "Get",
+                       AllowCache = false,
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "seller-partial",
+                       LoadingElementId = "spinner",
+                   }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

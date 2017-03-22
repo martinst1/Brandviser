@@ -23,6 +23,8 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             var domainFactory = new Mock<IDomainFactory>();
             var bradviserData = new Mock<IBrandviserData>();
             var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
             var name = "test.com";
             var description = "test description";
             var userId = "test string user id";
@@ -49,7 +51,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             bradviserData.Setup(b => b.Domains).Returns(mockedRepository.Object);
 
             var domainService = new DomainService(bradviserData.Object, domainFactory.Object,
-               dateTimeProvider.Object);
+               dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object);
 
             // Act
             domainService.AddDomain(name, description, userId);
@@ -64,9 +66,11 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             var domainFactory = new Mock<IDomainFactory>();
             var bradviserData = new Mock<IBrandviserData>();
             var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
 
             var domainService = new DomainService(bradviserData.Object, domainFactory.Object,
-               dateTimeProvider.Object);
+               dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object);
 
             // Act
             domainService.AddDomain("name", "description", "userId");
@@ -81,9 +85,11 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             var domainFactory = new Mock<IDomainFactory>();
             var bradviserData = new Mock<IBrandviserData>();
             var dateTimeProvider = new Mock<IDateTimeProvider>();
+            var whois = new Mock<IWhois>();
+            var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
 
             var domainService = new DomainService(bradviserData.Object, domainFactory.Object,
-               dateTimeProvider.Object);
+               dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object);
 
             // Act
             domainService.AddDomain("name", "description", "userId");

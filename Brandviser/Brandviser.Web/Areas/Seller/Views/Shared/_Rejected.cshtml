@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Brandviser.Web.Areas.Seller.Models.PartialDomainViewModel>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Domain Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var domain in Model)
+            {
+                <tr>
+                    <td>@domain.Name</td>
+                    <td>@domain.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
