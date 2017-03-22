@@ -99,6 +99,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\BrandviserDataTests\Constructor_Should.cs" />
+    <Compile Include="Data\BrandviserDataTests\Domains_Should.cs" />
+    <Compile Include="Data\BrandviserDataTests\SaveChanges_Should.cs" />
+    <Compile Include="Data\BrandviserDataTests\Statuses_Should.cs" />
+    <Compile Include="Data\BrandviserDataTests\Users_Should.cs" />
     <Compile Include="Models\DomainTests.cs" />
     <Compile Include="Models\StatusTests.cs" />
     <Compile Include="Models\UserTests.cs" />
