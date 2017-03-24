@@ -15,6 +15,8 @@ namespace Brandviser.Services.Contracts
 
         IEnumerable<Domain> GetSellerPublishedDomainsByUserId(string userId);
 
+        IEnumerable<Domain> GetSellerPendingDesignDomainsByUserId(string userId);
+
         IEnumerable<Domain> GetSellerSoldDomainsByUserId(string userId);
 
         Domain GetDomainByName(string name);
@@ -26,5 +28,9 @@ namespace Brandviser.Services.Contracts
         void PublishDomain(string name);
 
         void EditDomainOwnerPriceAndDescription(string name, decimal? ownerPrice, string description);
+
+        IEnumerable<Domain> GetAllDomainsPendingDesign();
+
+        void UpdateDomainLogoPathAndDesignerId(string name, string logoPath, string designerId);
     }
 }

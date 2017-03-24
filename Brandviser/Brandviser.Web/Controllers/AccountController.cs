@@ -93,6 +93,18 @@ namespace Brandviser.Web.Controllers
                         {
                             return RedirectToAction("Index", "Seller", new { area = "Seller" });
                         }
+                        if (isDesigner)
+                        {
+                            return RedirectToAction("Index", "Designer", new { area = "Designer" });
+                        }
+                        if (isBuyer)
+                        {
+                            return RedirectToAction("Index", "Buyer", new { area = "Buyer" });
+                        }
+                        if (isAdmin)
+                        {
+                            return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                        }
                         return RedirectToLocal(returnUrl);
                     }
                 case SignInStatus.LockedOut:

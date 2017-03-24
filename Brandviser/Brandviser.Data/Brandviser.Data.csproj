@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201703201844006_roles.Designer.cs">
       <DependentUpon>201703201844006_roles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703241039074_designstatus.cs" />
+    <Compile Include="Migrations\201703241039074_designstatus.Designer.cs">
+      <DependentUpon>201703241039074_designstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703201844006_roles.resx">
       <DependentUpon>201703201844006_roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703241039074_designstatus.resx">
+      <DependentUpon>201703241039074_designstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

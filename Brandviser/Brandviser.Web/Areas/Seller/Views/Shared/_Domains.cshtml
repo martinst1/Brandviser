@@ -29,6 +29,15 @@
     LoadingElementId = "spinner"
 }, new { @class = "btn btn-sm btn-primary" })
 
+    @Ajax.ActionLink("Pending Design", "PendingDesign", "Seller", null, new AjaxOptions()
+{
+    HttpMethod = "Get",
+    AllowCache = false,
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "domain-partial",
+    LoadingElementId = "spinner"
+}, new { @class = "btn btn-sm btn-primary" })
+
     @Ajax.ActionLink("Published", "Published", "Seller", null, new AjaxOptions()
 {
     HttpMethod = "Get",

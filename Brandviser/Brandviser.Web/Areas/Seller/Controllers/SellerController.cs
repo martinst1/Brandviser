@@ -138,6 +138,19 @@ namespace Brandviser.Web.Areas.Seller.Controllers
             return PartialView("_Sold", soldDomains);
         }
 
+        public ActionResult PendingDesign()
+        {
+            var pendingDesignDomains =
+                this.domainService.GetSellerPendingDesignDomainsByUserId(User.Identity.GetUserId())
+                .Select(d => new PartialDomainViewModel
+                {
+                    Name = d.Name,
+                    Status = "Sold"
+                }).ToList();
+
+            return PartialView("_Pending", pendingDesignDomains);
+        }
+
         public ActionResult Validate(string name)
         {
             if (name == null)

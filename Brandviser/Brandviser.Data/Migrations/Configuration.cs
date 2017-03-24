@@ -34,7 +34,8 @@ namespace Brandviser.Data.Migrations
                new Status() { Id = 2, Name = "Rejected" },
                new Status() { Id = 3, Name = "Accepted" },
                new Status() { Id = 4, Name = "Published" },
-               new Status() { Id = 5, Name = "Sold" }
+               new Status() { Id = 5, Name = "Sold" },
+               new Status() { Id = 6, Name = "PendingDesign" }
                );
         }
     }

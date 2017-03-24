@@ -197,6 +197,13 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Buyer\BuyerAreaRegistration.cs" />
+    <Compile Include="Areas\Designer\Controllers\DesignerController.cs" />
+    <Compile Include="Areas\Designer\DesignerAreaRegistration.cs" />
+    <Compile Include="Areas\Designer\Models\DesignerProfileBoxStatsViewModel.cs" />
+    <Compile Include="Areas\Designer\Models\PendingDesignDomainViewModel.cs" />
+    <Compile Include="Areas\Designer\Models\SubmitLogoViewModel.cs" />
     <Compile Include="Areas\Seller\Controllers\SellerController.cs" />
     <Compile Include="Areas\Seller\Models\AddDomainViewModel.cs" />
     <Compile Include="Areas\Seller\Models\EditDomainViewModel.cs" />
@@ -260,6 +267,13 @@
     <Content Include="Areas\Seller\Views\Shared\_Sold.cshtml" />
     <Content Include="Areas\Seller\Views\Seller\Validate.cshtml" />
     <Content Include="Areas\Seller\Views\Seller\Edit.cshtml" />
+    <Content Include="Areas\Seller\Views\Shared\_PendingDesign.cshtml" />
+    <Content Include="Areas\Designer\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Buyer\Views\web.config" />
+    <Content Include="Areas\Designer\Views\Designer\Index.cshtml" />
+    <Content Include="Areas\Designer\Views\Shared\_Pending.cshtml" />
+    <Content Include="Areas\Designer\Views\Shared\_Propose.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -326,6 +340,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Buyer\Controllers\" />
+    <Folder Include="Areas\Buyer\Models\" />
+    <Folder Include="Areas\Buyer\Views\Shared\" />
+    <Folder Include="Content\Domains\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

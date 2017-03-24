@@ -83,6 +83,15 @@ namespace Brandviser.Services
             return publishedDomains;
         }
 
+        public IEnumerable<Domain> GetSellerPendingDesignDomainsByUserId(string userId)
+        {
+            var pendingDesignDomains = this.brandviserData.Domains.All
+                .Where(d => d.UserId == userId && d.StatusId == 6)
+                .ToList();
+
+            return pendingDesignDomains;
+        }
+
         public IEnumerable<Domain> GetSellerSoldDomainsByUserId(string userId)
         {
             var soldDomains = this.brandviserData.Domains.All
@@ -146,6 +155,24 @@ namespace Brandviser.Services
             domain.OriginalOwnerCustomPrice = ownerPrice;
             domain.Description = description;
             domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
+
+            this.brandviserData.Domains.Update(domain);
+            this.brandviserData.SaveChanges();
+        }
+
+        public IEnumerable<Domain> GetAllDomainsPendingDesign()
+        {
+            var domains = this.brandviserData.Domains.All.Where(d => d.StatusId == 6).ToList();
+
+            return domains;
+        }
+
+        public void UpdateDomainLogoPathAndDesignerId(string name, string logoPath, string designerId)
+        {
+            var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
+
+            domain.LogoUrl = logoPath;
+            domain.DesignerId = designerId;
 
             this.brandviserData.Domains.Update(domain);
             this.brandviserData.SaveChanges();

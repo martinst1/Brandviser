@@ -1,0 +1,23 @@
+﻿@{
+    @model  Brandviser.Web.Areas.Designer.Models.SubmitLogoViewModel
+}
+
+<h3>Submit logo for domain name</h3>
+<hr />
+@using (Html.BeginForm("SendProposal", "Designer",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class="form-control", @readonly = "readonly"})
+    </div>
+
+    <div class="form-group">
+        <input type="file" name="file" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send</button>
+}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/unobtrusive")

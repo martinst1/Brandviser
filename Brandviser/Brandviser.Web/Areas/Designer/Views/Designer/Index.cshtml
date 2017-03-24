@@ -1,12 +1,12 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    @model  Brandviser.Web.Areas.Seller.Models.SellerProfileBoxStatsViewModel
+    @model  Brandviser.Web.Areas.Designer.Models.DesignerProfileBoxStatsViewModel
 }
 <div class="row seller-navbar">
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Dashboard", "Index", "Seller", null, new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Dashboard", "Index", "Designer", null, new { @class = "seller-nav-link" })</li>
         <li>
-            @Ajax.ActionLink("Domains", "Domains", "Seller", null, new AjaxOptions()
+            @Ajax.ActionLink("Domains", "Domains", "Designer", null, new AjaxOptions()
        {
            HttpMethod = "Get",
            AllowCache = false,
@@ -14,20 +14,10 @@
            UpdateTargetId = "seller-partial",
            LoadingElementId = "spinner"
        }, new { @class = "seller-nav-link" })
-        <li>
-            @Ajax.ActionLink("Add Domain+", "AddDomain", "Seller", null, new AjaxOptions()
-       {
-           HttpMethod = "Get",
-           AllowCache = false,
-           InsertionMode = InsertionMode.Replace,
-           UpdateTargetId = "seller-partial",
-           LoadingElementId = "spinner"
-       }, new { @class = "seller-nav-link-green" })
-        </li>
     </ul>
 
     <ul class="nav navbar-nav pull-right-md">
-        <li>@Html.ActionLink("Profile", "Index", "Seller", null, new { @class = "seller-nav-link-orange" })</li>
+        <li>@Html.ActionLink("Profile", "Index", "Designer", null, new { @class = "seller-nav-link-orange" })</li>
 
     </ul>
 </div>
@@ -81,14 +71,10 @@
         <div class="row profile-stats-row last-profile-row">
             <div class="col-md-8">
                 <h3 class="profile-h3">Domains</h3>
-                <p class="seller-block-small-text">Submitted:  @Model.SubmittedDomains</p>
-                <p class="seller-block-small-text">Rejected:   @Model.RejectedDomains</p>
-                <p class="seller-block-small-text">Pending:    @Model.PendingDomains</p>
-                <p class="seller-block-small-text">Published:  @Model.PublishedDomains</p>
-                <p class="seller-block-small-text">Sold:       @Model.SoldDomains</p>
+                <p class="seller-block-small-text">Pending Design:  @Model.DomainsPendingLogoDesign</p>
             </div>
             <div class="col-md-4">
-                <div class="profile-value-block">@Model.PublishedDomains</div>
+                <div class="profile-value-block">@Model.DomainsPendingLogoDesign</div>
             </div>
         </div>
     </div>
