@@ -139,5 +139,16 @@ namespace Brandviser.Services
             this.brandviserData.Domains.Update(domain);
             this.brandviserData.SaveChanges();
         }
+
+        public void EditDomainOwnerPriceAndDescription(string name, decimal? ownerPrice, string description)
+        {
+            var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
+            domain.OriginalOwnerCustomPrice = ownerPrice;
+            domain.Description = description;
+            domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
+
+            this.brandviserData.Domains.Update(domain);
+            this.brandviserData.SaveChanges();
+        }
     }
 }

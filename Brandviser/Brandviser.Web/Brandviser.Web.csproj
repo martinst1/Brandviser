@@ -199,7 +199,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Seller\Controllers\SellerController.cs" />
     <Compile Include="Areas\Seller\Models\AddDomainViewModel.cs" />
+    <Compile Include="Areas\Seller\Models\EditDomainViewModel.cs" />
     <Compile Include="Areas\Seller\Models\PartialDomainViewModel.cs" />
+    <Compile Include="Areas\Seller\Models\PartialPricedDatedDomainViewModel.cs" />
     <Compile Include="Areas\Seller\Models\PartialPricedDomainViewModel.cs" />
     <Compile Include="Areas\Seller\Models\SellerProfileBoxStatsViewModel.cs" />
     <Compile Include="Areas\Seller\Models\ValidateDomainViewModel.cs" />
@@ -257,6 +259,7 @@
     <Content Include="Areas\Seller\Views\Shared\_Published.cshtml" />
     <Content Include="Areas\Seller\Views\Shared\_Sold.cshtml" />
     <Content Include="Areas\Seller\Views\Seller\Validate.cshtml" />
+    <Content Include="Areas\Seller\Views\Seller\Edit.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

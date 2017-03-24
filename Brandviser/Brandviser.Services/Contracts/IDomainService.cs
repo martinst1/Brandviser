@@ -24,5 +24,7 @@ namespace Brandviser.Services.Contracts
         bool VerifyDomainNameByTxtRecord(string name);
 
         void PublishDomain(string name);
+
+        void EditDomainOwnerPriceAndDescription(string name, decimal? ownerPrice, string description);
     }
 }

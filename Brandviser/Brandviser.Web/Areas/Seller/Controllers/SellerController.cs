@@ -126,12 +126,13 @@ namespace Brandviser.Web.Areas.Seller.Controllers
         public ActionResult Sold()
         {
             var soldDomains =
-                this.domainService.GetSellerPublishedDomainsByUserId(User.Identity.GetUserId())
-                .Select(d => new PartialPricedDomainViewModel
+                this.domainService.GetSellerSoldDomainsByUserId(User.Identity.GetUserId())
+                .Select(d => new PartialPricedDatedDomainViewModel
                 {
                     Name = d.Name,
                     Status = "Sold",
-                    Price = d.Price
+                    Price = d.Price,
+                    SoldOn = (DateTime)d.SoldOn
                 }).ToList();
 
             return PartialView("_Sold", soldDomains);
@@ -169,7 +170,7 @@ namespace Brandviser.Web.Areas.Seller.Controllers
             if (VerificationMethod == "Nameserver")
             {
                 domainIsValid = this.domainService.VerifyDomainNameNameservers
-                    (validateDomainViewModel.Name + ".com", 
+                    (validateDomainViewModel.Name + ".com",
                     Settings.Default.Nameserver1, Settings.Default.Nameserver2);
             }
 
@@ -187,6 +188,52 @@ namespace Brandviser.Web.Areas.Seller.Controllers
             {
                 TempData["Error"] = validateDomainViewModel.Name + " failed " + VerificationMethod + " check!";
             }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(string name)
+        {
+            if (name == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var domain = this.domainService.GetDomainByName(name + ".com");
+
+            if (domain == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var editDomainViewModel = new EditDomainViewModel()
+            {
+                Id = domain.Id,
+                Name = domain.Name,
+                Description = domain.Description,
+                Price = domain.Price,
+                OwnerCustomPrice = domain.OriginalOwnerCustomPrice
+            };
+
+            return PartialView(editDomainViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDomain(EditDomainViewModel editDomainViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView("Edit",editDomainViewModel);
+            }
+
+            var price = editDomainViewModel.OwnerCustomPrice;
+            var description = editDomainViewModel.Description;
+            var name = editDomainViewModel.Name;
+
+            this.domainService.EditDomainOwnerPriceAndDescription(name + ".com", price, description);
+
+            TempData["Success"] = editDomainViewModel.Name + " edited successfully!";
 
             return RedirectToAction("Index");
         }

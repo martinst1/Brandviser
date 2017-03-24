@@ -11,7 +11,7 @@ using Brandviser.Services;
 using Moq;
 using NUnit.Framework;
 
-namespace Brandviser.Tests.Services
+namespace Brandviser.Tests.Services.DomainServiceTests
 {
     [TestFixture]
     public class VerifyDomainNameByTxtRecord_Should
