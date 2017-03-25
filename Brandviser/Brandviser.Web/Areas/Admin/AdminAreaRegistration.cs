@@ -16,8 +16,8 @@ namespace Brandviser.Web.Areas.Admin
         {
             context.MapRoute(
                 "Admin_default",
-                "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                "Admin/{controller}/{action}/{name}",
+                new { action = "Index", name = UrlParameter.Optional }
             );
         }
     }

@@ -1,12 +1,12 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    @model  Brandviser.Web.Areas.Designer.Models.DesignerProfileBoxStatsViewModel
+    @model  Brandviser.Web.Areas.Admin.Models.AdminProfileBoxStatsViewModel
 }
 <div class="row seller-navbar">
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Dashboard", "Index", "Designer", null, new { @class = "seller-nav-link" })</li>
+        <li>@Html.ActionLink("Dashboard", "Index", "Admin", null, new { @class = "seller-nav-link" })</li>
         <li>
-            @Ajax.ActionLink("Domains", "Domains", "Designer", null, new AjaxOptions()
+            @Ajax.ActionLink("Domains", "Domains", "Admin", null, new AjaxOptions()
        {
            HttpMethod = "Get",
            AllowCache = false,
@@ -17,7 +17,7 @@
     </ul>
 
     <ul class="nav navbar-nav pull-right-md">
-        <li>@Html.ActionLink("Profile", "Index", "Designer", null, new { @class = "seller-nav-link-orange" })</li>
+        <li>@Html.ActionLink("Profile", "Index", "Admin", null, new { @class = "seller-nav-link-orange" })</li>
 
     </ul>
 </div>
@@ -57,27 +57,16 @@
                 <div class="profile-namelogo">@Model.Initials</div>
             </div>
         </div>
-
-        <div class="row profile-stats-row">
-            <div class="col-md-8">
-                <h3 class="profile-h3">Credits</h3>
-                <p class="seller-block-small-text">Balance: $@Model.Balance</p>
-            </div>
-            <div class="col-md-4">
-                <div class="profile-value-block-money">@Model.BalanceInKUsd</div>
-            </div>
-        </div>
-
+        
         <div class="row profile-stats-row last-profile-row">
             <div class="col-md-8">
                 <h3 class="profile-h3">Domains</h3>
-                <p class="seller-block-small-text">All with pending Design:  @Model.DomainsPendingLogoDesign</p>
-                <p class="seller-block-small-text">Submitted by you:  @Model.Submitted</p>
-                <p class="seller-block-small-text">Published with your logo:  @Model.Published</p>
+                <p class="seller-block-small-text">Pending approval:  @Model.DomainsPendingApproval</p>
+                <p class="seller-block-small-text">Pending logo approval:   @Model.DomainsPendingLogoApproval</p>
             </div>
-            <div class="col-md-4">
-                <div class="profile-value-block">@Model.DomainsPendingLogoDesign</div>
-            </div>
+            @*<div class="col-md-4">
+                <div class="profile-value-block">@Model.PublishedDomains</div>
+            </div>*@
         </div>
     </div>
 </div>

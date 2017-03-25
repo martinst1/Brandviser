@@ -198,6 +198,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminProfileBoxStatsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ApproveDomainLogoViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ApproveDomainNameViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\PendingApprovalDomainViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\PendingLogoApprovalDomainViewModel.cs" />
     <Compile Include="Areas\Buyer\BuyerAreaRegistration.cs" />
     <Compile Include="Areas\Designer\Controllers\DesignerController.cs" />
     <Compile Include="Areas\Designer\DesignerAreaRegistration.cs" />
@@ -274,6 +280,12 @@
     <Content Include="Areas\Designer\Views\Designer\Index.cshtml" />
     <Content Include="Areas\Designer\Views\Shared\_Pending.cshtml" />
     <Content Include="Areas\Designer\Views\Shared\_Propose.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Domains.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PendingApproval.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PendingLogoApproval.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_ApprovePendingDomainIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_ApprovePendingLogoDomainIndex.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -340,9 +352,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Buyer\Controllers\" />
     <Folder Include="Areas\Buyer\Models\" />
     <Folder Include="Areas\Buyer\Views\Shared\" />

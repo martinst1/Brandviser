@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Brandviser.Web.Areas.Admin.Models.PendingLogoApprovalDomainViewModel>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Domain Name</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var domain in Model)
+            {
+                <tr>
+                    <td>@domain.Name</td>
+                    <td>
+                        @domain.Status
+                    </td>
+                    <td>
+                        @Ajax.ActionLink("Actions", "ApprovePendingLogoDomainIndex", "Admin", new { name = domain.Name.Replace(".com", "") }, new AjaxOptions()
+                   {
+                       HttpMethod = "Get",
+                       AllowCache = false,
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "seller-partial",
+                       LoadingElementId = "spinner",
+                   }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

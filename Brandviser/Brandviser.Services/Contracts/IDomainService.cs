@@ -32,5 +32,23 @@ namespace Brandviser.Services.Contracts
         IEnumerable<Domain> GetAllDomainsPendingDesign();
 
         void UpdateDomainLogoPathAndDesignerId(string name, string logoPath, string designerId);
+
+        IEnumerable<Domain> GetPendingApprovalDomainsSubmittedByDesigner(string designerId);
+
+        IEnumerable<Domain> GetPublishedDomainsSubmittedByDesigner(string designerId);
+
+        IEnumerable<Domain> GetAllDomainsPendingApproval();
+
+        IEnumerable<Domain> GetAllDomainsPendingLogoApproval();
+
+        void ApproveDomain(string name, decimal? price);
+
+        void RejectDomain(string name);
+
+        void ApproveDomainLogo(string name);
+
+        void RejectDomainLogo(string name);
+
+        void SendDomainForLogoDesign(string name);
     }
 }

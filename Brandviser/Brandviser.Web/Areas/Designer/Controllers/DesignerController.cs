@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Brandviser.Web.Areas.Designer.Controllers
 {
+    [Authorize(Roles = "Designer")]
     public class DesignerController : Controller
     {
         private IUserService userService;
@@ -30,17 +31,19 @@ namespace Brandviser.Web.Areas.Designer.Controllers
 
             var user = this.userService.GetUserByStringId(userId);
 
-            var sellerProfileBoxModel = new DesignerProfileBoxStatsViewModel()
+            var designerProfileBoxModel = new DesignerProfileBoxStatsViewModel()
             {
                 FullName = user.FirstName + " " + user.LastName,
                 Initials = user.FirstName[0].ToString() + user.LastName[0].ToString(),
                 MemberSince = user.CreatedOn,
                 Balance = user.Balance,
                 BalanceInKUsd = Math.Round(user.Balance / 1000, 0) + "k",
-                DomainsPendingLogoDesign = this.domainService.GetAllDomainsPendingDesign().Count()
+                DomainsPendingLogoDesign = this.domainService.GetAllDomainsPendingDesign().Count(),
+                Submitted = this.domainService.GetPendingApprovalDomainsSubmittedByDesigner(userId).Count(),
+                Published = this.domainService.GetPublishedDomainsSubmittedByDesigner(userId).Count()
             };
 
-            return View(sellerProfileBoxModel);
+            return View(designerProfileBoxModel);
         }
 
         public ActionResult Domains()

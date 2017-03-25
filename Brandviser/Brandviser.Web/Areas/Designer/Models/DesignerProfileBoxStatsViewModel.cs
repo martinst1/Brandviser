@@ -18,5 +18,9 @@ namespace Brandviser.Web.Areas.Designer.Models
         public decimal Balance { get; set; }
 
         public int DomainsPendingLogoDesign { get; set; }
+
+        public int Submitted { get; set; }
+
+        public int Published { get; set; }
     }
 }

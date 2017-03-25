@@ -173,6 +173,98 @@ namespace Brandviser.Services
 
             domain.LogoUrl = logoPath;
             domain.DesignerId = designerId;
+            domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
+
+            this.brandviserData.Domains.Update(domain);
+            this.brandviserData.SaveChanges();
+        }
+
+        public IEnumerable<Domain> GetPendingApprovalDomainsSubmittedByDesigner(string designerId)
+        {
+            var domains = this.brandviserData.Domains
+                .All.Where(d => d.DesignerId == designerId && d.StatusId == 6).ToList();
+
+            return domains;
+        }
+
+        public IEnumerable<Domain> GetPublishedDomainsSubmittedByDesigner(string designerId)
+        {
+            var domains = this.brandviserData.Domains
+                .All.Where(d => d.DesignerId == designerId && d.StatusId == 4).ToList();
+
+            return domains;
+        }
+
+        public IEnumerable<Domain> GetAllDomainsPendingApproval()
+        {
+            var domainsPendingApproval = this.brandviserData.Domains.All.Where(d => d.StatusId == 1).ToList();
+
+            return domainsPendingApproval;
+        }
+
+        public IEnumerable<Domain> GetAllDomainsPendingLogoApproval()
+        {
+            var domainsPendingLogoApproval = this.brandviserData
+                .Domains.All.Where(d => d.StatusId == 6 && d.LogoUrl != null).ToList();
+
+            return domainsPendingLogoApproval;
+        }
+
+        public void ApproveDomain(string name, decimal? price)
+        {
+            var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
+
+            // approved domain moves to pending design status
+            domain.StatusId = 3;
+            domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
+            domain.Price = price;
+            domain.OriginalOwnerCustomPrice = price;
+
+            this.brandviserData.Domains.Update(domain);
+            this.brandviserData.SaveChanges();
+        }
+
+        public void RejectDomain(string name)
+        {
+            var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
+
+            domain.StatusId = 2;
+            domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
+
+            this.brandviserData.Domains.Update(domain);
+            this.brandviserData.SaveChanges();
+        }
+
+        public void ApproveDomainLogo(string name)
+        {
+            var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
+
+            // goes to published
+            domain.StatusId = 4;
+            domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
+
+            this.brandviserData.Domains.Update(domain);
+            this.brandviserData.SaveChanges();
+        }
+
+        public void RejectDomainLogo(string name)
+        {
+            var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
+
+            domain.StatusId = 6;
+            domain.LogoUrl = null;
+            domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
+
+            this.brandviserData.Domains.Update(domain);
+            this.brandviserData.SaveChanges();
+        }
+
+        public void SendDomainForLogoDesign(string name)
+        {
+            var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
+
+            domain.StatusId = 6;
+            domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
 
             this.brandviserData.Domains.Update(domain);
             this.brandviserData.SaveChanges();

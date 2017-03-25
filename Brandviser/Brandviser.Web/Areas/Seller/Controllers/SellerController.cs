@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Brandviser.Web.Areas.Seller.Controllers
 {
+    [Authorize(Roles = "Seller")]
     public class SellerController : Controller
     {
         private IUserService userService;
@@ -145,7 +146,7 @@ namespace Brandviser.Web.Areas.Seller.Controllers
                 .Select(d => new PartialDomainViewModel
                 {
                     Name = d.Name,
-                    Status = "Sold"
+                    Status = "Pending Design"
                 }).ToList();
 
             return PartialView("_Pending", pendingDesignDomains);
@@ -194,8 +195,8 @@ namespace Brandviser.Web.Areas.Seller.Controllers
 
             if (domainIsValid)
             {
-                this.domainService.PublishDomain(validateDomainViewModel.Name + ".com");
-                TempData["Success"] = validateDomainViewModel.Name + " published successfully!";
+                this.domainService.SendDomainForLogoDesign(validateDomainViewModel.Name + ".com");
+                TempData["Success"] = validateDomainViewModel.Name + " sent for logo design successfully!";
             }
             else
             {

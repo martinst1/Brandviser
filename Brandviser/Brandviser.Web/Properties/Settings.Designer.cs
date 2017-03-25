@@ -25,7 +25,7 @@ namespace Brandviser.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ns61.domaincontrol.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("dns159.a.register.com")]
         public string Nameserver1 {
             get {
                 return ((string)(this["Nameserver1"]));
@@ -34,7 +34,7 @@ namespace Brandviser.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ns62.domaincontrol.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("dns146.b.register.com")]
         public string Nameserver2 {
             get {
                 return ((string)(this["Nameserver2"]));
