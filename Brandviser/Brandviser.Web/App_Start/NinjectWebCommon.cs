@@ -17,6 +17,7 @@ namespace Brandviser.Web.App_Start
     using Services;
     using Factories;
     using Ninject.Extensions.Factory;
+    using Helpers.Contracts;
 
     public static class NinjectWebCommon
     {
@@ -78,6 +79,8 @@ namespace Brandviser.Web.App_Start
             kernel.Bind<IDateTimeProvider>().To<DateTimeProvider>().InRequestScope();
 
             kernel.Bind<IDomainFactory>().ToFactory().InRequestScope();
+
+            kernel.Bind<ILoggedInUser>().To<LoggedInUser>();
         }
     }
 }

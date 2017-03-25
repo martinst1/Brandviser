@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Brandviser.Services.Contracts;
 using Brandviser.Web.Areas.Seller.Models;
+using Brandviser.Web.Helpers.Contracts;
 using Brandviser.Web.Properties;
 using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
@@ -12,21 +13,26 @@ namespace Brandviser.Web.Areas.Seller.Controllers
     [Authorize(Roles = "Seller")]
     public class SellerController : Controller
     {
-        private IUserService userService;
-        private IDomainService domainService;
+        private readonly IUserService userService;
+        private readonly IDomainService domainService;
+        private readonly ILoggedInUser loggedInUser;
 
-        public SellerController(IUserService userService, IDomainService domainService)
+        public SellerController(IUserService userService, IDomainService domainService,
+            ILoggedInUser loggedInUser)
         {
             Guard.WhenArgument(userService, nameof(IUserService)).IsNull().Throw();
-            Guard.WhenArgument(userService, nameof(IDomainService)).IsNull().Throw();
+            Guard.WhenArgument(domainService, nameof(IDomainService)).IsNull().Throw();
+            Guard.WhenArgument(loggedInUser, nameof(ILoggedInUser)).IsNull().Throw();
 
             this.userService = userService;
             this.domainService = domainService;
+            this.loggedInUser = loggedInUser;
         }
         // GET: Seller/Seller
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
+            //var userId = User.Identity.GetUserId();
+            var userId = this.loggedInUser.GetUserId();
 
             var user = this.userService.GetUserByStringId(userId);
 
@@ -56,11 +62,13 @@ namespace Brandviser.Web.Areas.Seller.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddDomain(AddDomainViewModel domainCandidate)
         {
+            var userId = this.loggedInUser.GetUserId();
+
             if (!ModelState.IsValid)
             {
                 return this.View(domainCandidate);
             }
-            this.domainService.AddDomain(domainCandidate.Name, domainCandidate.Description, User.Identity.GetUserId());
+            this.domainService.AddDomain(domainCandidate.Name, domainCandidate.Description, userId);
             TempData["Success"] = "Added successfully!";
             return RedirectToAction("Index");
         }
@@ -72,8 +80,10 @@ namespace Brandviser.Web.Areas.Seller.Controllers
 
         public ActionResult Pending()
         {
+            var userId = this.loggedInUser.GetUserId();
+
             var pendingDomains =
-                this.domainService.GetSellerPendingDomainsByUserId(User.Identity.GetUserId())
+                this.domainService.GetSellerPendingDomainsByUserId(userId)
                 .Select(d => new PartialDomainViewModel
                 {
                     Name = d.Name,
@@ -85,8 +95,10 @@ namespace Brandviser.Web.Areas.Seller.Controllers
 
         public ActionResult Rejected()
         {
+            var userId = this.loggedInUser.GetUserId();
+
             var rejectedDomains =
-                this.domainService.GetSellerRejectedDomainsByUserId(User.Identity.GetUserId())
+                this.domainService.GetSellerRejectedDomainsByUserId(userId)
                 .Select(d => new PartialDomainViewModel
                 {
                     Name = d.Name,
@@ -98,8 +110,10 @@ namespace Brandviser.Web.Areas.Seller.Controllers
 
         public ActionResult Accepted()
         {
+            var userId = this.loggedInUser.GetUserId();
+
             var acceptedDomains =
-                this.domainService.GetSellerAcceptedDomainsByUserId(User.Identity.GetUserId())
+                this.domainService.GetSellerAcceptedDomainsByUserId(userId)
                 .Select(d => new PartialPricedDomainViewModel
                 {
                     Name = d.Name,
@@ -112,8 +126,10 @@ namespace Brandviser.Web.Areas.Seller.Controllers
 
         public ActionResult Published()
         {
+            var userId = this.loggedInUser.GetUserId();
+
             var publishedDomains =
-                this.domainService.GetSellerPublishedDomainsByUserId(User.Identity.GetUserId())
+                this.domainService.GetSellerPublishedDomainsByUserId(userId)
                 .Select(d => new PartialPricedDomainViewModel
                 {
                     Name = d.Name,
@@ -126,8 +142,10 @@ namespace Brandviser.Web.Areas.Seller.Controllers
 
         public ActionResult Sold()
         {
+            var userId = this.loggedInUser.GetUserId();
+
             var soldDomains =
-                this.domainService.GetSellerSoldDomainsByUserId(User.Identity.GetUserId())
+                this.domainService.GetSellerSoldDomainsByUserId(userId)
                 .Select(d => new PartialPricedDatedDomainViewModel
                 {
                     Name = d.Name,
@@ -141,8 +159,10 @@ namespace Brandviser.Web.Areas.Seller.Controllers
 
         public ActionResult PendingDesign()
         {
+            var userId = this.loggedInUser.GetUserId();
+
             var pendingDesignDomains =
-                this.domainService.GetSellerPendingDesignDomainsByUserId(User.Identity.GetUserId())
+                this.domainService.GetSellerPendingDesignDomainsByUserId(userId)
                 .Select(d => new PartialDomainViewModel
                 {
                     Name = d.Name,
@@ -238,7 +258,7 @@ namespace Brandviser.Web.Areas.Seller.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("Edit",editDomainViewModel);
+                return PartialView("Edit", editDomainViewModel);
             }
 
             var price = editDomainViewModel.OwnerCustomPrice;

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Brandviser.Services.Contracts;
 using Brandviser.Web.Areas.Designer.Models;
+using Brandviser.Web.Helpers.Contracts;
 using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 
@@ -13,21 +14,26 @@ namespace Brandviser.Web.Areas.Designer.Controllers
     [Authorize(Roles = "Designer")]
     public class DesignerController : Controller
     {
-        private IUserService userService;
-        private IDomainService domainService;
+        private readonly IUserService userService;
+        private readonly IDomainService domainService;
+        private readonly ILoggedInUser loggedInUser;
 
-        public DesignerController(IUserService userService, IDomainService domainService)
+        public DesignerController(IUserService userService, IDomainService domainService,
+            ILoggedInUser loggedInUser)
         {
             Guard.WhenArgument(userService, nameof(IUserService)).IsNull().Throw();
-            Guard.WhenArgument(userService, nameof(IDomainService)).IsNull().Throw();
+            Guard.WhenArgument(domainService, nameof(IDomainService)).IsNull().Throw();
+            Guard.WhenArgument(loggedInUser, nameof(ILoggedInUser)).IsNull().Throw();
 
             this.userService = userService;
             this.domainService = domainService;
+            this.loggedInUser = loggedInUser;
         }
         // GET: Designer/Designer
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
+            //var userId = User.Identity.GetUserId();
+            var userId = this.loggedInUser.GetUserId();
 
             var user = this.userService.GetUserByStringId(userId);
 
@@ -83,7 +89,8 @@ namespace Brandviser.Web.Areas.Designer.Controllers
 
             string logoPath = "~/Content/Domains/" + fileName;
 
-            var userId = User.Identity.GetUserId();
+            //var userId = User.Identity.GetUserId();
+            var userId = this.loggedInUser.GetUserId();
             var domainName = submitLogoViewModel.Name + ".com";
 
             this.domainService.UpdateDomainLogoPathAndDesignerId(domainName, logoPath, userId);

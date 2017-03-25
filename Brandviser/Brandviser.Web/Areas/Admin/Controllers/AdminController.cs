@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Brandviser.Services.Contracts;
 using Brandviser.Web.Areas.Admin.Models;
+using Brandviser.Web.Helpers.Contracts;
 using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 
@@ -13,22 +14,27 @@ namespace Brandviser.Web.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-        private IUserService userService;
-        private IDomainService domainService;
+        private readonly IUserService userService;
+        private readonly IDomainService domainService;
+        private readonly ILoggedInUser loggedInUser;
 
-        public AdminController(IUserService userService, IDomainService domainService)
+        public AdminController(IUserService userService, IDomainService domainService,
+            ILoggedInUser loggedInUser)
         {
             Guard.WhenArgument(userService, nameof(IUserService)).IsNull().Throw();
-            Guard.WhenArgument(userService, nameof(IDomainService)).IsNull().Throw();
+            Guard.WhenArgument(domainService, nameof(IDomainService)).IsNull().Throw();
+            Guard.WhenArgument(loggedInUser, nameof(ILoggedInUser)).IsNull().Throw();
 
             this.userService = userService;
             this.domainService = domainService;
+            this.loggedInUser = loggedInUser;
         }
 
         // GET: Admin/Admin
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
+            //var userId = User.Identity.GetUserId();
+            var userId = this.loggedInUser.GetUserId();
             var user = this.userService.GetUserByStringId(userId);
 
             var domainsForApprovalCount = this.domainService.GetAllDomainsPendingApproval().Count();
@@ -86,12 +92,12 @@ namespace Brandviser.Web.Areas.Admin.Controllers
                 SellerUsername = domain.User.UserName
             };
 
-            return PartialView("_ApprovePendingDomainIndex",approveDomainNameViewModel);
+            return PartialView("_ApprovePendingDomainIndex", approveDomainNameViewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ApprovePendingDomain(string ApproveAction, 
+        public ActionResult ApprovePendingDomain(string ApproveAction,
             ApproveDomainNameViewModel approveDomainNameViewModel)
         {
             if (ApproveAction == "Approve")

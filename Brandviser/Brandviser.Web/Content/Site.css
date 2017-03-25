@@ -8,7 +8,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 15px;
+    padding-top: 18px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -34,11 +34,13 @@ textarea {
     background: linear-gradient(to right, #4c4c4c 0%,#595959 9%,#666666 17%,#474747 26%,#2c2c2c 34%,#000000 42%,#000000 42%,#000000 46%,#000000 48%,#000000 58%,#000000 66%,#2b2b2b 72%,#1c1c1c 96%,#131313 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=1 );*/
 
-    background: #485563; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #485563 , #29323c); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #485563 , #29323c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
 
+    /*working*/
+    background: #485563; 
+    background: -webkit-linear-gradient(to left, #485563 , #29323c); 
+    background: linear-gradient(to left, #485563 , #29323c); 
+
+    box-shadow: 0px 1px 1px #888888;
 
 }
 
@@ -51,6 +53,7 @@ background: linear-gradient(to left, #485563 , #29323c); /* W3C, IE 10+/ Edge, F
     }
 
 .main-logo {
+    /*Working logo*/
     width: 150px;
     height: 23px;
     margin-top: 7px;
