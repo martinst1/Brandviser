@@ -50,5 +50,7 @@ namespace Brandviser.Services.Contracts
         void RejectDomainLogo(string name);
 
         void SendDomainForLogoDesign(string name);
+
+        IEnumerable<Domain> GetLatestEightPublishedDomains();
     }
 }

@@ -269,5 +269,13 @@ namespace Brandviser.Services
             this.brandviserData.Domains.Update(domain);
             this.brandviserData.SaveChanges();
         }
+
+        public IEnumerable<Domain> GetLatestEightPublishedDomains()
+        {
+            var domains = this.brandviserData.Domains
+                .All.Where(d => d.StatusId == 4).OrderByDescending(d => d.UpdatedAt).ToList();
+
+            return domains;
+        }
     }
 }

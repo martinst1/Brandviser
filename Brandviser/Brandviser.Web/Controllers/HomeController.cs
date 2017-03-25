@@ -5,28 +5,38 @@ using System.Web;
 using System.Web.Mvc;
 using Brandviser.Data.Contracts;
 using Brandviser.Data.Models;
+using Brandviser.Services.Contracts;
+using Brandviser.Web.Models;
+using Bytes2you.Validation;
 
 namespace Brandviser.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDomainService domainService;
+
+        public HomeController(IDomainService domainService)
+        {
+            Guard.WhenArgument(domainService, nameof(IDomainService)).IsNull().Throw();
+
+            this.domainService = domainService;
+        }
         public ActionResult Index()
         {
-            return View();
-        }
+            var latestDomains =
+                this.domainService.GetLatestEightPublishedDomains()
+                .Select(d => new DomainViewModel
+                {
+                    Name = d.Name,
+                    LogoUrl = d.LogoUrl,
+                    Price = d.OriginalOwnerCustomPrice
+                }).ToList();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            var homeViewModel = new HomeViewModel();
 
-            return View();
-        }
+            homeViewModel.Domains = latestDomains;
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(homeViewModel);
         }
     }
 }

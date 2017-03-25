@@ -27,21 +27,16 @@ textarea {
 
 .main-navbar {
     /*cheren*/
-
     /*background: #4c4c4c;
     background: -moz-linear-gradient(left, #4c4c4c 0%, #595959 9%, #666666 17%, #474747 26%, #2c2c2c 34%, #000000 42%, #000000 42%, #000000 46%, #000000 48%, #000000 58%, #000000 66%, #2b2b2b 72%, #1c1c1c 96%, #131313 100%);
     background: -webkit-linear-gradient(left, #4c4c4c 0%,#595959 9%,#666666 17%,#474747 26%,#2c2c2c 34%,#000000 42%,#000000 42%,#000000 46%,#000000 48%,#000000 58%,#000000 66%,#2b2b2b 72%,#1c1c1c 96%,#131313 100%);
     background: linear-gradient(to right, #4c4c4c 0%,#595959 9%,#666666 17%,#474747 26%,#2c2c2c 34%,#000000 42%,#000000 42%,#000000 46%,#000000 48%,#000000 58%,#000000 66%,#2b2b2b 72%,#1c1c1c 96%,#131313 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=1 );*/
-
-
     /*working*/
-    background: #485563; 
-    background: -webkit-linear-gradient(to left, #485563 , #29323c); 
-    background: linear-gradient(to left, #485563 , #29323c); 
-
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #485563, #29323c);
+    background: linear-gradient(to left, #485563, #29323c);
     box-shadow: 0px 1px 1px #888888;
-
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -72,7 +67,7 @@ textarea {
 }
 
     .seller-nav-link-green:hover {
-        background: #7cd90b!important;
+        background: #7cd90b !important;
         color: white;
     }
 
@@ -82,7 +77,7 @@ textarea {
 }
 
     .seller-nav-link-orange:hover {
-        background: #ff8300!important;
+        background: #ff8300 !important;
         color: white;
     }
 
@@ -176,11 +171,11 @@ h3 {
     margin: 0;
 }
 
-.last-profile-row{
-    padding-bottom:20px;
+.last-profile-row {
+    padding-bottom: 20px;
 }
 
-#seller-partial{
+#seller-partial {
     background-color: white;
     border-radius: 3px;
     box-shadow: 0px 2px 2px #888888;
@@ -197,6 +192,111 @@ h3 {
 }
 
 td {
-  word-wrap:break-word;
-  word-break:break-all;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+.top-home {
+}
+
+.home-search-box {
+    margin-top: 2px;
+    background-color: white;
+    padding: 0;
+    box-shadow: 0px 1px 1px #888888;
+    border-radius: 1px;
+}
+
+.glyphicon-search {
+    font-size: 30px;
+    color: #4a4a4a;
+    padding-top: 15px;
+}
+
+.home-search-input {
+    max-width: 1000px;
+    width: 1000px;
+    height: 65px;
+    font-size: 25px;
+    font-weight: 200;
+    color: #a6aaa9;
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+}
+
+    .home-search-input:focus {
+        outline: none;
+    }
+
+.main-header {
+    background: white;
+    margin-top: 5px;
+    box-shadow: 0px 1px 1px #888888;
+    border-radius: 1px;
+}
+
+    .main-header h1 {
+        font-size: 36px;
+        padding-bottom: 35px;
+        font-weight: 200;
+        line-height: 35px;
+    }
+
+    .main-header h3 {
+        font-size: 19px;
+        line-height: 30px;
+        font-weight: 200;
+        padding-bottom: 30px;
+    }
+
+.domains-front {
+}
+
+.single-domain {
+    width: 277px;
+    height: 195px;
+    background: white;
+    margin-right: 15px;
+    margin-top: 15px;
+    border-radius: 1px;
+    border: 1px solid #D3D3D3;
+}
+
+.domain-front-logo {
+    width: 180px;
+    height: 100px;
+    margin: 20px 30px 0px 30px;
+}
+
+.domain-price {
+    color: #adb0af;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.domain-bottom-row {
+    margin-top: 15px;
+    padding-bottom: 1px;
+    background: #E0E0E0;
+    height: 36px;
+}
+.domain-name-front {
+    padding-top: 6px;
+    color: #232323;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: Raleway;
+    text-shadow: 0 0 2px #E0E0E0, 0 0 11px #E0E0E0;
+}
+
+.buybutton .btn-info {
+    padding-left: 0px;
+    height: 36px;
+    width: 77px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    border-bottom-right-radius: 0px;
 }
