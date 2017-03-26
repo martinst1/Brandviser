@@ -365,6 +365,7 @@
     <Content Include="Views\Shared\_DomainBox.cshtml" />
     <Content Include="Views\Shared\_SearchBox.cshtml" />
     <Content Include="Views\Domain\Details.cshtml" />
+    <Content Include="Views\Domain\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,6 +11,7 @@ using Bytes2you.Validation;
 
 namespace Brandviser.Web.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly IDomainService domainService;

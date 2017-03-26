@@ -60,5 +60,7 @@ namespace Brandviser.Services.Contracts
         void UpdateDomainToBought(int domainId);
 
         IEnumerable<Domain> GetBuyerOwnedDomainsByUserId(string buyerId);
+
+        IEnumerable<Domain> Search(string searchedText);
     }
 }

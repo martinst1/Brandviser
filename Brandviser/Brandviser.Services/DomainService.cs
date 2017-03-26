@@ -311,5 +311,21 @@ namespace Brandviser.Services
 
             return domains;
         }
+
+        public IEnumerable<Domain> Search(string searchedText)
+        {
+            var domains = this.brandviserData.Domains.All.
+                Where(d => d.StatusId == 4).
+                Where(d =>
+                d.Description.Contains(searchedText) ||
+                d.Name.Contains(searchedText) ||
+                d.User.FirstName.Contains(searchedText) ||
+                d.User.LastName.Contains(searchedText) ||
+                d.Designer.FirstName.Contains(searchedText) ||
+                d.Designer.LastName.Contains(searchedText)
+                ).ToList();
+
+            return domains;
+        }
     }
 }

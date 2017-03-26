@@ -5,8 +5,9 @@
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </div>
     <div class="col-md-11">
-        @using (Html.BeginForm("Index", "Home"))
-            {
+        @using (Html.BeginForm("Search", "Domain"))
+        {
+            @Html.AntiForgeryToken()
             @Html.TextBoxFor(m => m.SearchBoxText, new { @class = "home-search-input", @placeholder = "Search available business names for sale" })
 
             <button style="display:none;" type="submit" class="btn btn-primary">Submit</button>

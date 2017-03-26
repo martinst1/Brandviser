@@ -9,6 +9,7 @@ using Bytes2you.Validation;
 
 namespace Brandviser.Web.Controllers
 {
+    [AllowAnonymous]
     public class DomainController : Controller
     {
         private readonly IDomainService domainService;
@@ -55,6 +56,37 @@ namespace Brandviser.Web.Controllers
             };
 
             return View(domainViewModel);
+        }
+
+        public ActionResult Search()
+        {
+            //var searchViewModel = new SearchViewModel()
+            //{
+            //    Domains = new List<DomainViewModel>()
+            //};
+
+            //return View(searchViewModel);
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Search(SearchViewModel searchViewModel)
+        {
+            // to consider returning all names with empty search string
+            var searchedText = searchViewModel.SearchBoxText;
+
+            searchViewModel.Domains = this.domainService.Search(searchedText).Select(d =>
+                    new DomainViewModel()
+                    {
+                        Id = d.Id,
+                        Name = d.Name,
+                        LogoUrl = d.LogoUrl,
+                        Price = d.OriginalOwnerCustomPrice
+                    }).ToList();
+
+            return View(searchViewModel);
         }
     }
 }

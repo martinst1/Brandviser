@@ -1,0 +1,29 @@
+﻿@model Brandviser.Web.Models.SearchViewModel
+
+@Html.Partial("_SearchBox", Model)
+
+@if (Model != null)
+{
+    if (Model.Domains.Count() == 0)
+    {
+        <p>Nothing found.</p>
+    }
+
+    if (Model.Domains.Count() > 0)
+    {
+        if (Model.Domains.Count() == 1)
+        {
+            <p>1 name found.</p>
+        }
+        else
+        {
+            <p>@Model.Domains.Count() names found.</p>
+        }
+        <div class="row domains-front">
+            @foreach (var domain in Model.Domains)
+            {
+                @Html.Partial("_DomainBox", domain);
+            }
+        </div>
+    }
+}
