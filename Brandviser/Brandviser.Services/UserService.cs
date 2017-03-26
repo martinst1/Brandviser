@@ -34,12 +34,7 @@ namespace Brandviser.Services
 
             var userHasEnoughMoney = user.Balance >= neededAmount;
 
-            if (userHasEnoughMoney)
-            {
-                return true;
-            }
-
-            return false;
+            return userHasEnoughMoney;
         }
 
         public void BuyDomain(string buyerId, int domainId)

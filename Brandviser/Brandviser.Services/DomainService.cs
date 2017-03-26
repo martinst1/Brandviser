@@ -214,7 +214,6 @@ namespace Brandviser.Services
         {
             var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
 
-            // approved domain moves to pending design status
             domain.StatusId = 3;
             domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
             domain.Price = price;
@@ -263,6 +262,7 @@ namespace Brandviser.Services
         {
             var domain = this.brandviserData.Domains.All.SingleOrDefault(d => d.Name == name);
 
+            // approved domain moves to pending design status
             domain.StatusId = 6;
             domain.UpdatedAt = this.dateTimeProvider.GetCurrentTime();
 
@@ -273,7 +273,10 @@ namespace Brandviser.Services
         public IEnumerable<Domain> GetLatestEightPublishedDomains()
         {
             var domains = this.brandviserData.Domains
-                .All.Where(d => d.StatusId == 4).OrderByDescending(d => d.UpdatedAt).ToList();
+                .All.Where(d => d.StatusId == 4)
+                .OrderByDescending(d => d.UpdatedAt)
+                .Take(8)
+                .ToList();
 
             return domains;
         }
@@ -291,12 +294,7 @@ namespace Brandviser.Services
 
             var buyerOwnsDomain = domain.BuyerId == buyerId;
 
-            if (buyerOwnsDomain)
-            {
-                return true;
-            }
-
-            return false;
+            return buyerOwnsDomain;
         }
 
         public void UpdateDomainToBought(int domainId)
