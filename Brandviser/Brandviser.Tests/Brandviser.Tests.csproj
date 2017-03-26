@@ -139,6 +139,9 @@
     <Compile Include="ViewModels\Buyer\AddFundsViewModelTests.cs" />
     <Compile Include="ViewModels\Buyer\BuyerProfileBoxStatsViewModelTests.cs" />
     <Compile Include="ViewModels\Buyer\OwnedDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Designer\DesignerProfileBoxStatsViewModelTests.cs" />
+    <Compile Include="ViewModels\Designer\PendingDesignDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Designer\SubmitLogoViewModelTests.cs" />
     <Compile Include="ViewModels\Main\DomainDetailsViewModelTests.cs" />
     <Compile Include="ViewModels\Main\DomainViewModelTests.cs" />
     <Compile Include="ViewModels\Main\SearchViewModelTests.cs" />
