@@ -8,17 +8,19 @@
             <strong>@TempData["Error"]</strong>
         </div>
     }
-    <div class="row">
-        <div class="col-md-4">
-            <img src="@Model.LogoUrl.Substring(1)" alt="Logo" />
+    <div class="row domain-details-box">
+        <div class="col-md-6 domain-logo-box">
+            <img class="domain-details-logo" src="@Model.LogoUrl.Substring(1)" alt="Logo" />
         </div>
-        <div class="col-md-8">
-            <p>@Model.Name</p>
-            <p>@Model.Price</p>
-            <p>@Model.DesignerName</p>
-            <p>@Model.SellerName</p>
-            <p>@Model.PostedOn</p>
-
+        <div class="col-md-4 domain-text-box">
+            <h2>@Model.Name</h2>
+            <p>@Model.Description</p>
+            <p><span class="domain-text-box-smallweight">Designed by:</span> @Model.DesignerName</p>
+            <p><span class="domain-text-box-smallweight">Seller: </span>@Model.SellerName</p>
+            <p><span class="domain-text-box-smallweight">Posted on: </span>@Model.PostedOn.ToString("M")</p>
+        </div>
+        <div class="col-md-2 domain-box-price">
+            <h1 class="right">$@Model.Price</h1>
             @if (User.IsInRole("Buyer"))
             {
                 using (Html.BeginForm("BuyDomain", "Buyer", new { area = "Buyer" }))
@@ -29,7 +31,7 @@
                     @Html.HiddenFor(m => m.Name)
                     @Html.HiddenFor(m => m.Price)
                     @Html.HiddenFor(m => m.SellerId)
-                    <button type="submit" class="btn btn-primary">Buy</button>
+                    <button type="submit" class="btn btn-success buy-button-details-box">Buy Now</button>
                 }
             }
         </div>

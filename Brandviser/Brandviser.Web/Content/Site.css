@@ -282,6 +282,7 @@ td {
     background: #E0E0E0;
     height: 36px;
 }
+
 .domain-name-front {
     padding-top: 6px;
     color: #232323;
@@ -299,4 +300,49 @@ td {
     font-size: 17px;
     font-weight: 400;
     border-bottom-right-radius: 0px;
+}
+
+.domain-logo-box {
+    width: 350px;
+    height: 270px;
+    background: white;
+    margin: 20px;
+    box-shadow: 1px 1px 1px 1px #FFFFFF;
+}
+
+.domain-details-logo {
+    padding-top: 50px;
+    padding-right: 10px;
+    padding-left: 30px;
+    width: 300px;
+}
+
+.domain-details-box {
+    margin-top: 75px;
+    background: #485563;
+    background: -webkit-linear-gradient(to left, #485563, #29323c);
+    background: linear-gradient(to left, #485563, #29323c);
+    box-shadow: 0px 1px 1px #888888;
+    border-radius: 2px;
+    box-shadow: 0px 1px 1px #888888;
+}
+
+.domain-text-box{
+    color:white;
+    font-weight: 300;
+}
+.domain-box-price {
+    color:white;
+}
+
+.domain-text-box-smallweight {
+    font-weight: 500;
+}
+
+.buy-button-details-box {
+    margin-top: 170px;
+    margin-left: 220px;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
 }

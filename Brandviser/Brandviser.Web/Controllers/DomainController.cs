@@ -52,7 +52,7 @@ namespace Brandviser.Web.Controllers
                 Price = domain.OriginalOwnerCustomPrice,
                 LogoUrl = domain.LogoUrl,
                 SellerId = domain.UserId,
-                PostedOn = domain.UpdatedAt
+                PostedOn = (DateTime)domain.UpdatedAt
             };
 
             return View(domainViewModel);

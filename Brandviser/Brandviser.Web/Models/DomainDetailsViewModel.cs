@@ -23,6 +23,6 @@ namespace Brandviser.Web.Models
 
         public string SellerId { get; set; }
 
-        public DateTime? PostedOn { get; set; }
+        public DateTime PostedOn { get; set; }
     }
 }
