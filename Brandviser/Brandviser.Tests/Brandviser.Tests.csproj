@@ -97,6 +97,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="TestStack.FluentMVCTesting, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TestStack.FluentMVCTesting.3.0.0\lib\NET45\TestStack.FluentMVCTesting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BrandviserDataTests\Constructor_Should.cs" />
@@ -127,6 +131,9 @@
     <Compile Include="Utils\WhoisTests\Constructor_Should.cs" />
     <Compile Include="Utils\WhoisTests\FakeSocket.cs" />
     <Compile Include="Utils\WhoisTests\LookupDotComDomain_Should.cs" />
+    <Compile Include="ViewModels\Main\DomainDetailsViewModelTests.cs" />
+    <Compile Include="ViewModels\Main\DomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Main\SearchViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -134,9 +141,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Brandviser.Common\Brandviser.Common.csproj">
       <Project>{9ab1fe7a-8695-4e53-b351-49982ee226f8}</Project>
@@ -157,6 +162,10 @@
     <ProjectReference Include="..\Brandviser.Services\Brandviser.Services.csproj">
       <Project>{5d41a6e2-4750-49b0-a8b6-89f5158af822}</Project>
       <Name>Brandviser.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brandviser.Web\Brandviser.Web.csproj">
+      <Project>{7FC10768-C475-48E0-BC54-AC4B732C8953}</Project>
+      <Name>Brandviser.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
