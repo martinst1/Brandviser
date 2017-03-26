@@ -1,20 +1,6 @@
-﻿@model Brandviser.Web.Models.HomeViewModel
+﻿@model Brandviser.Web.Models.SearchViewModel
 
-
-
-<div class="row home-search-box">
-    <div class="col-md-1">
-        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    </div>
-    <div class="col-md-11">
-        @using (Html.BeginForm("Index", "Home"))
-            {
-            @Html.TextBoxFor(m => m.SearchBoxText, new { @class = "home-search-input", @placeholder = "Search available business names for sale" })
-
-            <button style="display:none;" type="submit" class="btn btn-primary">Submit</button>
-        }
-    </div>
-</div>
+@Html.Partial("_SearchBox", Model)
 
 <div class="row main-header">
     <h1 class="text-center">BUSINESS NAMES FROM BRANDVISER</h1>
@@ -27,18 +13,7 @@
 <div class="row domains-front">
     @foreach (var domain in Model.Domains)
     {
-        <div class="col-md-3 single-domain left">
-            <img class="domain-front-logo text-center" src="@domain.LogoUrl.Substring(1)" alt="@domain.Name logo" />
-            <div class="domain-price text-center">$@domain.Price</div>
-            <div class="row domain-bottom-row">
-                <div class="col-md-8 domain-name-front">
-                    @domain.Name
-                </div>
-                <div class="col-md-2 buybutton">
-                    <a class="btn btn-sm btn-info" href="#">Buy Now</a>
-                </div>
-            </div>
-        </div>
+        @Html.Partial("_DomainBox", domain);
     }
 </div>
 

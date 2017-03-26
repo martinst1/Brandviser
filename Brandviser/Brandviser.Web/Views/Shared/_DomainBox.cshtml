@@ -1,0 +1,14 @@
+﻿@model Brandviser.Web.Models.DomainViewModel
+
+<div class="col-md-3 single-domain left">
+    <img class="domain-front-logo text-center" src="@Model.LogoUrl.Substring(1)" alt="@Model.Name logo" />
+    <div class="domain-price text-center">$@Model.Price</div>
+    <div class="row domain-bottom-row">
+        <div class="col-md-8 domain-name-front">
+            @Model.Name
+        </div>
+        <div class="col-md-2 buybutton">
+            <a class="btn btn-sm btn-info" href="/domain/details/@Model.Id">Details</a>
+        </div>
+    </div>
+</div>

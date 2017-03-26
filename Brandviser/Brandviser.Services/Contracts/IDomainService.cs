@@ -52,5 +52,13 @@ namespace Brandviser.Services.Contracts
         void SendDomainForLogoDesign(string name);
 
         IEnumerable<Domain> GetLatestEightPublishedDomains();
+
+        Domain GetDomainById(int id);
+
+        bool CheckIfBuyerOwnsCertainDomain(int domainId, string buyerId);
+
+        void UpdateDomainToBought(int domainId);
+
+        IEnumerable<Domain> GetBuyerOwnedDomainsByUserId(string buyerId);
     }
 }

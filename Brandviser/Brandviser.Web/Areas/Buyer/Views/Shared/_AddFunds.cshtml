@@ -1,0 +1,20 @@
+﻿@{
+    @model  Brandviser.Web.Areas.Buyer.Models.AddFundsViewModel
+}
+
+<h3>Top up your balance</h3>
+<hr />
+@using (Html.BeginForm("AddFunds", "Buyer"))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Amount)
+        @Html.TextBoxFor(m => m.Amount, new { @class = "form-control", @placeholder = "Enter amount from $1 to $100000" })
+        @Html.ValidationMessageFor(m => m.Amount)
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add</button>
+}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/unobtrusive")

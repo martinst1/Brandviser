@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Brandviser.Web.Areas.Buyer.Models.OwnedDomainViewModel>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Domain Name</th>
+                <th>Bought On</th>
+                <th>Price</th>
+                <th>Seller</th>
+                <th>Designer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var domain in Model)
+            {
+                <tr>
+                    <td>@domain.Name</td>
+                    <td>@domain.BoughtOn.ToString("D")</td>
+                    <td>$@domain.Price</td>
+                    <td>@domain.Seller</td>
+                    <td>@domain.Designer</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

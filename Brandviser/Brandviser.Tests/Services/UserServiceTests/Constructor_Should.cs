@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Brandviser.Common.Contracts;
 using Brandviser.Data.Contracts;
 using Brandviser.Services;
 using Brandviser.Services.Contracts;
@@ -17,10 +18,12 @@ namespace Brandviser.Tests.Services.UserServiceTests
         [Test]
         public void ThrowArgumentNullExceptionWithMessageContaining_IBrandviserData_WhenBrandviserDataIsNull()
         {
+            // Arrange
+            var dateTimeProvider = new Mock<IDateTimeProvider>();
 
             // Act and Assert
             Assert.That(() =>
-            new UserService(null),
+            new UserService(null, dateTimeProvider.Object),
             Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("IBrandviserData"));
         }
 
@@ -29,10 +32,11 @@ namespace Brandviser.Tests.Services.UserServiceTests
         {
             // Arrange
             var bradviserData = new Mock<IBrandviserData>();
+            var dateTimeProvider = new Mock<IDateTimeProvider>();
 
 
             // Act
-            var userService = new UserService(bradviserData.Object);
+            var userService = new UserService(bradviserData.Object, dateTimeProvider.Object);
 
             // Assert
             Assert.IsInstanceOf<IUserService>(userService);
@@ -43,9 +47,11 @@ namespace Brandviser.Tests.Services.UserServiceTests
         {
             // Arrange
             var bradviserData = new Mock<IBrandviserData>();
+            var dateTimeProvider = new Mock<IDateTimeProvider>();
+
 
             // Act and Assert
-            Assert.DoesNotThrow(() => new UserService(bradviserData.Object));
+            Assert.DoesNotThrow(() => new UserService(bradviserData.Object, dateTimeProvider.Object));
         }
     }
 }

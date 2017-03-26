@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Brandviser.Common.Contracts;
 using Brandviser.Data.Contracts;
 using Brandviser.Data.Models;
 using Brandviser.Services;
@@ -22,7 +23,9 @@ namespace Brandviser.Tests.Services.UserServiceTests
             // Arrange
             var brandviserData = new Mock<IBrandviserData>();
             var userRepository = new Mock<IEfRepository<User>>();
-            var userService = new UserService(brandviserData.Object);
+            var dateTimeProvider = new Mock<IDateTimeProvider>();
+
+            var userService = new UserService(brandviserData.Object, dateTimeProvider.Object);
 
             brandviserData.Setup(b => b.Users).Returns(userRepository.Object);
 

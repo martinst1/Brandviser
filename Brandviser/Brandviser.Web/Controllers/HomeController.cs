@@ -29,10 +29,11 @@ namespace Brandviser.Web.Controllers
                 {
                     Name = d.Name,
                     LogoUrl = d.LogoUrl,
-                    Price = d.OriginalOwnerCustomPrice
+                    Price = d.OriginalOwnerCustomPrice,
+                    Id = d.Id
                 }).ToList();
 
-            var homeViewModel = new HomeViewModel();
+            var homeViewModel = new SearchViewModel();
 
             homeViewModel.Domains = latestDomains;
 

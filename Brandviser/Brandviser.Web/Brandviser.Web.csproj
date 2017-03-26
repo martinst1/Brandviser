@@ -205,6 +205,10 @@
     <Compile Include="Areas\Admin\Models\PendingApprovalDomainViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PendingLogoApprovalDomainViewModel.cs" />
     <Compile Include="Areas\Buyer\BuyerAreaRegistration.cs" />
+    <Compile Include="Areas\Buyer\Controllers\BuyerController.cs" />
+    <Compile Include="Areas\Buyer\Models\AddFundsViewModel.cs" />
+    <Compile Include="Areas\Buyer\Models\BuyerProfileBoxStatsViewModel.cs" />
+    <Compile Include="Areas\Buyer\Models\OwnedDomainViewModel.cs" />
     <Compile Include="Areas\Designer\Controllers\DesignerController.cs" />
     <Compile Include="Areas\Designer\DesignerAreaRegistration.cs" />
     <Compile Include="Areas\Designer\Models\DesignerProfileBoxStatsViewModel.cs" />
@@ -220,6 +224,7 @@
     <Compile Include="Areas\Seller\Models\ValidateDomainViewModel.cs" />
     <Compile Include="Areas\Seller\SellerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DomainController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -228,8 +233,9 @@
     <Compile Include="Helpers\Contracts\ILoggedInUser.cs" />
     <Compile Include="Helpers\LoggedInUser.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DomainDetailsViewModel.cs" />
     <Compile Include="Models\DomainViewModel.cs" />
-    <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -290,6 +296,9 @@
     <Content Include="Areas\Admin\Views\Shared\_PendingLogoApproval.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_ApprovePendingDomainIndex.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_ApprovePendingLogoDomainIndex.cshtml" />
+    <Content Include="Areas\Buyer\Views\Buyer\Index.cshtml" />
+    <Content Include="Areas\Buyer\Views\Shared\_Owned.cshtml" />
+    <Content Include="Areas\Buyer\Views\Shared\_AddFunds.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -353,12 +362,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_DomainBox.cshtml" />
+    <Content Include="Views\Shared\_SearchBox.cshtml" />
+    <Content Include="Views\Domain\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Buyer\Controllers\" />
-    <Folder Include="Areas\Buyer\Models\" />
-    <Folder Include="Areas\Buyer\Views\Shared\" />
     <Folder Include="Content\Domains\" />
   </ItemGroup>
   <ItemGroup>

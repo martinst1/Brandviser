@@ -277,5 +277,41 @@ namespace Brandviser.Services
 
             return domains;
         }
+
+        public Domain GetDomainById(int id)
+        {
+            var domain = this.brandviserData.Domains.GetById(id);
+
+            return domain;
+        }
+
+        public bool CheckIfBuyerOwnsCertainDomain(int domainId, string buyerId)
+        {
+            var domain = this.brandviserData.Domains.GetById(domainId);
+
+            var buyerOwnsDomain = domain.BuyerId == buyerId;
+
+            if (buyerOwnsDomain)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void UpdateDomainToBought(int domainId)
+        {
+            var domain = this.brandviserData.Domains.GetById(domainId);
+
+            domain.StatusId = 5;
+            this.brandviserData.SaveChanges();
+        }
+
+        public IEnumerable<Domain> GetBuyerOwnedDomainsByUserId(string buyerId)
+        {
+            var domains = this.brandviserData.Domains.All.Where(d => d.BuyerId == buyerId).ToList();
+
+            return domains;
+        }
     }
 }

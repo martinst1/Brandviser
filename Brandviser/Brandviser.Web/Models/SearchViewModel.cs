@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Brandviser.Web.Models
 {
-    public class HomeViewModel
+    public class SearchViewModel
     {
         public string SearchBoxText { get; set; }
 
