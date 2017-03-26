@@ -117,11 +117,13 @@
     <Compile Include="Services\DomainServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\DomainServiceTests\GetDomainByName_Should.cs" />
     <Compile Include="Services\DomainServiceTests\GetSellerAcceptedDomainsByUserId.cs" />
+    <Compile Include="Services\DomainServiceTests\GetSellerPendingDesignDomainsByUserId_Should.cs" />
     <Compile Include="Services\DomainServiceTests\GetSellerPendingDomainsByUserId_Should.cs" />
     <Compile Include="Services\DomainServiceTests\GetSellerPublishedDomainsByUserId.cs" />
     <Compile Include="Services\DomainServiceTests\GetSellerRejectedDomainsByUserId_Should.cs" />
     <Compile Include="Services\DomainServiceTests\GetSellerSoldDomainsByUserId.cs" />
     <Compile Include="Services\DomainServiceTests\PublishDomain_Should.cs" />
+    <Compile Include="Services\DomainServiceTests\Search_Should.cs" />
     <Compile Include="Services\DomainServiceTests\VerifyDomainNameServers_Should.cs" />
     <Compile Include="Services\UserServiceTests\GetUserByStringId_Should.cs" />
     <Compile Include="Services\UserServiceTests\Constructor_Should.cs" />
