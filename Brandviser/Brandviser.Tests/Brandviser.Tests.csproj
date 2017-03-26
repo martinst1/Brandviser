@@ -131,6 +131,11 @@
     <Compile Include="Utils\WhoisTests\Constructor_Should.cs" />
     <Compile Include="Utils\WhoisTests\FakeSocket.cs" />
     <Compile Include="Utils\WhoisTests\LookupDotComDomain_Should.cs" />
+    <Compile Include="ViewModels\Admin\AdminProfileBoxStatsViewModelTests.cs" />
+    <Compile Include="ViewModels\Admin\ApproveDomainLogoViewModelTests.cs" />
+    <Compile Include="ViewModels\Admin\ApproveDomainNameViewModelTests.cs" />
+    <Compile Include="ViewModels\Admin\PendingApprovalDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Admin\PendingLogoApprovalViewModelTests.cs" />
     <Compile Include="ViewModels\Main\DomainDetailsViewModelTests.cs" />
     <Compile Include="ViewModels\Main\DomainViewModelTests.cs" />
     <Compile Include="ViewModels\Main\SearchViewModelTests.cs" />

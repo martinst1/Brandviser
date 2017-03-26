@@ -28,6 +28,15 @@ namespace Brandviser.Tests.Models
         }
 
         [Test]
+        public void ConstructorShouldCreateStatus_WithCorrectParams()
+        {
+            // Act & Assert
+            var status = new Status("name");
+
+            Assert.IsInstanceOf<Status>(status);
+        }
+
+        [Test]
         public void StatusShouldCreate_HashsetOf_Domains_WhenInitialized()
         {
             // Arrange
