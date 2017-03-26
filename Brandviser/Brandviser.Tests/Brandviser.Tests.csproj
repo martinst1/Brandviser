@@ -145,6 +145,13 @@
     <Compile Include="ViewModels\Main\DomainDetailsViewModelTests.cs" />
     <Compile Include="ViewModels\Main\DomainViewModelTests.cs" />
     <Compile Include="ViewModels\Main\SearchViewModelTests.cs" />
+    <Compile Include="ViewModels\Seller\AddDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Seller\EditDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Seller\PartialDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Seller\PartialPricedDatedDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Seller\PartialPricedDomainViewModelTests.cs" />
+    <Compile Include="ViewModels\Seller\SellerProfileBoxStatsViewModelTests.cs" />
+    <Compile Include="ViewModels\Seller\ValidateDomainViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
