@@ -104,6 +104,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Admin Area\AdminControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\Admin Area\AdminControllerTests\Domains_Should.cs" />
+    <Compile Include="Controllers\Admin Area\AdminControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\Admin Area\AdminControllerTests\PendingApproval_Should.cs" />
+    <Compile Include="Controllers\Admin Area\AdminControllerTests\PendingLogoApproval_Should.cs" />
+    <Compile Include="Controllers\Buyer Area\BuyerControllerTests\AddFunds_Should.cs" />
+    <Compile Include="Controllers\Buyer Area\BuyerControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\Buyer Area\BuyerControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\Designer Area\DesignerControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\Designer Area\DesignerControllerTests\Domains_Should.cs" />
+    <Compile Include="Controllers\Designer Area\DesignerControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\Designer Area\DesignerControllerTests\Propose_Should.cs" />
     <Compile Include="Controllers\Main\DomainControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\Main\DomainControllerTests\Details_Should.cs" />
     <Compile Include="Controllers\Main\DomainControllerTests\Index_Should.cs" />
@@ -203,11 +215,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\Admin Area\" />
-    <Folder Include="Controllers\Buyer Area\" />
-    <Folder Include="Controllers\Designer Area\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Brandviser.Common\Brandviser.Common.csproj">
       <Project>{9ab1fe7a-8695-4e53-b351-49982ee226f8}</Project>
