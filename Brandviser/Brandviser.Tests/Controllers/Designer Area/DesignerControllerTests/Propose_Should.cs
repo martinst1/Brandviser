@@ -17,6 +17,7 @@ namespace Brandviser.Tests.Controllers.Designer_Area.DesignerControllerTests
     [TestFixture]
     public class Propose_Should
     {
+        [Test]
         public void RenderProposePartialView_WithExpectedViewModel()
         {
             // Arrange
