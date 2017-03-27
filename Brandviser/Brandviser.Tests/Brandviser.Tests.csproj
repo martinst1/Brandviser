@@ -104,6 +104,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Main\HomeControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\Main\HomeControllerTests\Index_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\Constructor_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\Domains_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\SaveChanges_Should.cs" />
@@ -183,7 +185,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controllers\Admin Area\" />
+    <Folder Include="Controllers\Buyer Area\" />
+    <Folder Include="Controllers\Designer Area\" />
+    <Folder Include="Controllers\Seller Area\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Brandviser.Common\Brandviser.Common.csproj">
       <Project>{9ab1fe7a-8695-4e53-b351-49982ee226f8}</Project>
