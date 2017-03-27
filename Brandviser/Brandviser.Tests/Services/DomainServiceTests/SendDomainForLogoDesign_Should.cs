@@ -74,7 +74,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
         }
 
         [Test]
-        public void Call_DateTimeProvider_SaveChanges_Once()
+        public void Call_DateTimeProvider_GetCurrentTime_Once()
         {
             // Arrange
             var domainFactory = new Mock<IDomainFactory>();
