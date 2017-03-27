@@ -115,11 +115,13 @@
     <Compile Include="Controllers\Seller Area\SellerControllerTests\AddDomain_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Contructor_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Domains_Should.cs" />
+    <Compile Include="Controllers\Seller Area\SellerControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\PendingDesign_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Pending_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Published_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Rejected_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Sold_Should.cs" />
+    <Compile Include="Controllers\Seller Area\SellerControllerTests\Validate_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\Constructor_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\Domains_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\SaveChanges_Should.cs" />

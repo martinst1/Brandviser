@@ -79,7 +79,7 @@ namespace Brandviser.Tests.Controllers.Main.DomainControllerTests
             // Act 
             domainController.Details(testId);
 
-            //
+            // Assert
             domainController
                 .WithCallTo(c => c.Details(testId))
                 .ShouldRedirectTo<HomeController>(h => h.Index());
