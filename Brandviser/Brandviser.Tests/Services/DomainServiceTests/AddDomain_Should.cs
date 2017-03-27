@@ -60,6 +60,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             mockedRepository.Verify(r => r.Add(actualDomain), Times.Once());
         }
 
+        [Test]
         public void Call_BrandviserSaveChanges_Once()
         {
             // Arrange
@@ -68,10 +69,18 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             var dateTimeProvider = new Mock<IDateTimeProvider>();
             var whois = new Mock<IWhois>();
             var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
+            var domainsRepository = new Mock<IEfRepository<Domain>>();
 
             var domainService = new DomainService(bradviserData.Object, domainFactory.Object,
                dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object);
 
+            bradviserData.Setup(d => d.Domains).Returns(domainsRepository.Object);
+
+            dateTimeProvider.Setup(d => d.GetCurrentTime()).Returns(new DateTime(17, 1, 1));
+            domainFactory.Setup(d =>
+            d.CreateDomain(
+                It.IsAny<string>(), It.IsAny<string>(), It.IsAny<int>(), It.IsAny<string>(), It.IsAny<DateTime>()))
+                .Returns(new Domain());
             // Act
             domainService.AddDomain("name", "description", "userId");
 
@@ -79,6 +88,7 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             bradviserData.Verify(b => b.SaveChanges(), Times.Once());
         }
 
+        [Test]
         public void Call_DateTimeProvider_GetCurrentTime_Once()
         {
             // Arrange
@@ -87,10 +97,18 @@ namespace Brandviser.Tests.Services.DomainServiceTests
             var dateTimeProvider = new Mock<IDateTimeProvider>();
             var whois = new Mock<IWhois>();
             var txtRecordsChecker = new Mock<ITxtRecordsChecker>();
+            var domainsRepository = new Mock<IEfRepository<Domain>>();
+
+            bradviserData.Setup(d => d.Domains).Returns(domainsRepository.Object);
 
             var domainService = new DomainService(bradviserData.Object, domainFactory.Object,
                dateTimeProvider.Object, whois.Object, txtRecordsChecker.Object);
 
+            dateTimeProvider.Setup(d => d.GetCurrentTime()).Returns(new DateTime(17, 1, 1));
+            domainFactory.Setup(d =>
+            d.CreateDomain(
+                It.IsAny<string>(), It.IsAny<string>(), It.IsAny<int>(), It.IsAny<string>(), It.IsAny<DateTime>()))
+                .Returns(new Domain());
             // Act
             domainService.AddDomain("name", "description", "userId");
 

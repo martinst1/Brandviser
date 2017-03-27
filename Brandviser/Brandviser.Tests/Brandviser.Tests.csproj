@@ -113,9 +113,11 @@
     <Compile Include="Controllers\Main\HomeControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Accepted_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\AddDomain_Should.cs" />
+    <Compile Include="Controllers\Seller Area\SellerControllerTests\AddDomain_WithParams_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Contructor_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Domains_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\Seller Area\SellerControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\PendingDesign_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Pending_Should.cs" />
     <Compile Include="Controllers\Seller Area\SellerControllerTests\Published_Should.cs" />
