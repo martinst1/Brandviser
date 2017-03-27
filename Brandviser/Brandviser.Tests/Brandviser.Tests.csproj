@@ -41,6 +41,7 @@
       <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq, Version=4.7.1.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
@@ -142,6 +143,8 @@
     <Compile Include="Services\DomainServiceTests\UpdateDomainLogoPathAndDesignerId_Should.cs" />
     <Compile Include="Services\DomainServiceTests\UpdateDomainToBought_Should.cs" />
     <Compile Include="Services\DomainServiceTests\VerifyDomainNameServers_Should.cs" />
+    <Compile Include="Services\UserServiceTests\BuyDomain_Should.cs" />
+    <Compile Include="Services\UserServiceTests\CheckIfBuyerHasEnoughMoney_Should.cs" />
     <Compile Include="Services\UserServiceTests\GetUserByStringId_Should.cs" />
     <Compile Include="Services\UserServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\DomainServiceTests\VerifyDomainNameByTxtRecord_Should.cs" />
