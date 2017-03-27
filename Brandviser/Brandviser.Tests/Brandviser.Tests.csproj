@@ -111,6 +111,9 @@
     <Compile Include="Controllers\Main\DomainControllerTests\Search_With_Params_Should.cs" />
     <Compile Include="Controllers\Main\HomeControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\Main\HomeControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\Seller Area\SellerControllerTests\AddDomain_Should.cs" />
+    <Compile Include="Controllers\Seller Area\SellerControllerTests\Contructor_Should.cs" />
+    <Compile Include="Controllers\Seller Area\SellerControllerTests\Domains_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\Constructor_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\Domains_Should.cs" />
     <Compile Include="Data\BrandviserDataTests\SaveChanges_Should.cs" />
@@ -194,7 +197,6 @@
     <Folder Include="Controllers\Admin Area\" />
     <Folder Include="Controllers\Buyer Area\" />
     <Folder Include="Controllers\Designer Area\" />
-    <Folder Include="Controllers\Seller Area\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Brandviser.Common\Brandviser.Common.csproj">
