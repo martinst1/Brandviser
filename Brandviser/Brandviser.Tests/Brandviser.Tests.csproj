@@ -148,6 +148,8 @@
     <Compile Include="Services\UserServiceTests\GetUserByStringId_Should.cs" />
     <Compile Include="Services\UserServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\DomainServiceTests\VerifyDomainNameByTxtRecord_Should.cs" />
+    <Compile Include="Services\UserServiceTests\TopUpUserBalance_Should.cs" />
+    <Compile Include="Services\UserServiceTests\TransferAmountFromBuyerToSeller_Should.cs" />
     <Compile Include="Utils\TxtRecordsCheckerTests\Constructor_Should.cs" />
     <Compile Include="Utils\TxtRecordsCheckerTests\GetRecords_Should.cs" />
     <Compile Include="Utils\WhoisTests\Constructor_Should.cs" />
