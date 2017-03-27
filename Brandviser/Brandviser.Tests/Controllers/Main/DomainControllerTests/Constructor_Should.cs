@@ -9,7 +9,7 @@ using Brandviser.Web.Controllers;
 using Moq;
 using NUnit.Framework;
 
-namespace Brandviser.Tests.Controllers.Main.HomeControllerTests
+namespace Brandviser.Tests.Controllers.Main.DomainControllerTests
 {
     [TestFixture]
     public class Constructor_Should
@@ -22,7 +22,7 @@ namespace Brandviser.Tests.Controllers.Main.HomeControllerTests
 
 
             // Act and Assert
-            Assert.DoesNotThrow(() => new HomeController(domainService.Object));
+            Assert.DoesNotThrow(() => new DomainController(domainService.Object));
         }
 
         [Test]
@@ -33,19 +33,19 @@ namespace Brandviser.Tests.Controllers.Main.HomeControllerTests
 
 
             // Act
-            var homeController = new HomeController(domainService.Object);
+            var domainController = new DomainController(domainService.Object);
 
             // Assert
-            Assert.IsInstanceOf<Controller>(homeController);
+            Assert.IsInstanceOf<Controller>(domainController);
         }
 
         [Test]
         public void ThrowArgumentNullExceptionWithMessageContaining_IDomainService_WhenDomainServiceIsNull()
         {
-          
+
             // Act and Assert
             Assert.That(() =>
-            new HomeController(null),
+            new DomainController(null),
             Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("IDomainService"));
         }
     }
