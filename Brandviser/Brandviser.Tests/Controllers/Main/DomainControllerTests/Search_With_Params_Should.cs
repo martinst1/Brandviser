@@ -16,6 +16,7 @@ namespace Brandviser.Tests.Controllers.Main.DomainControllerTests
     [TestFixture]
     public class Search_With_Params_Should
     {
+        [Test]
         public void RenderDefaultView_WithExpectedViewModel()
         {
             // Arrange
@@ -37,7 +38,7 @@ namespace Brandviser.Tests.Controllers.Main.DomainControllerTests
                 .WithModel<SearchViewModel>(
                 s =>
                 {
-                    Assert.AreEqual(10, s.Domains.Count());
+                    Assert.AreEqual(1, s.Domains.Count());
                     Assert.AreEqual("name", s.Domains.First().Name);
                     Assert.AreEqual("logourl", s.Domains.First().LogoUrl);
                     Assert.AreEqual(1, s.Domains.First().Price);
