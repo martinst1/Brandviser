@@ -80,6 +80,12 @@ namespace Brandviser.Web.Areas.Designer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SendProposal(SubmitLogoViewModel submitLogoViewModel, HttpPostedFileBase file)
         {
+            // to fix
+            if (file == null)
+            {
+                return PartialView("_Propose", submitLogoViewModel);
+            }
+
             string fileName = submitLogoViewModel.Name + "-candidate.png";
 
             string path = System.IO.Path.Combine(
