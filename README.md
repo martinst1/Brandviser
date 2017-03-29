@@ -8,7 +8,7 @@
 - Site admin approves or rejects the domain name
 - Designer proposes logo 
 - Site admin approves or rejects the logo
-- Domain is posted and buyers can browse and buyers
+- Domain is posted and buyers can browse and buy
 
 ## Anonymous user
 - Can browse home page with latest domains
